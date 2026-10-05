@@ -1,13 +1,7 @@
 const field =
   "mt-1.5 w-full rounded-xl border border-border-warm px-4 py-3 text-base bg-canvas-cream";
 
-export function WaitlistForm({
-  intent = "waitlist",
-  submitLabel = "Join the waitlist",
-}: {
-  intent?: "waitlist" | "validate";
-  submitLabel?: string;
-}) {
+export function WaitlistForm() {
   return (
     <form
       className="rounded-3xl border border-border-warm bg-white p-5 sm:p-8 space-y-4 shadow-[0_8px_28px_-8px_rgba(29,42,74,0.08)]"
@@ -15,7 +9,7 @@ export function WaitlistForm({
       method="post"
       encType="text/plain"
     >
-      <input type="hidden" name="intent" value={intent} />
+      <input type="hidden" name="intent" value="waitlist" />
       <div className="grid sm:grid-cols-2 gap-4">
         <label className="block text-sm font-semibold text-primary">
           Brand / kitchen name
@@ -99,8 +93,8 @@ export function WaitlistForm({
         Anything else (optional)
         <textarea name="notes" rows={3} className={field} placeholder="Outlets, peak hours, cuisine…" />
       </label>
-      <button type="submit" className="w-full rounded-full bg-secondary text-white py-3.5 font-headline font-bold text-sm">
-        {submitLabel}
+      <button type="submit" className="btn-waitlist w-full rounded-full text-white py-3.5 text-[1.85rem] leading-none">
+        Join waitlist
       </button>
       <p className="text-xs text-text-muted text-center">Opens email to partner@damigos.in — no spam list, founding waitlist only.</p>
     </form>

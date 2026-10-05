@@ -3,6 +3,7 @@ import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips, TextLink } from "@/components/site/StepChips";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
+import { WaitlistButton } from "@/components/site/WaitlistButton";
 
 const STEPS = [
   {
@@ -55,19 +56,8 @@ export default function HomePage() {
               Hum data tumhe dete hain. Pehle wale orders se personalized rewards. Campaigns unke liye, auto.
               Online appearance + orders — <span className="text-accent-gold font-bold">3x</span> ki taraf.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/waitlist"
-                className="cta-full inline-flex items-center justify-center rounded-full bg-secondary text-white px-6 sm:px-7 py-3.5 font-headline text-sm font-bold shadow-[0_4px_16px_rgba(154,69,47,0.28)]"
-              >
-                Join a waitlist
-              </Link>
-              <Link
-                href="/contact"
-                className="cta-full inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 text-white px-6 sm:px-7 py-3.5 font-headline text-sm font-semibold"
-              >
-                Book a validation
-              </Link>
+            <div className="mt-8">
+              <WaitlistButton />
             </div>
             <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-white/15">
               {[
@@ -407,19 +397,8 @@ export default function HomePage() {
             Hum guest data dete hain. Pehle orders se personal rewards. Campaigns unke naam pe.
             Online dikhna aur orders — 3x. Cloud kitchen ya takeaway, form mein order details bharo.
           </p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/waitlist"
-              className="cta-full inline-flex justify-center rounded-full bg-secondary text-white px-7 py-3.5 font-headline text-sm font-bold"
-            >
-              Join a waitlist
-            </Link>
-            <Link
-              href="/contact"
-              className="cta-full inline-flex justify-center rounded-full border border-border-warm bg-white text-primary px-7 py-3.5 font-headline text-sm font-semibold"
-            >
-              Book a validation
-            </Link>
+          <div className="mt-6">
+            <WaitlistButton />
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { DamigosLogo } from "./DamigosLogo";
+import { WaitlistButton } from "./WaitlistButton";
 import { cn } from "@/lib/cn";
 
 const LINKS = [
@@ -65,19 +66,7 @@ export function SiteHeader() {
             ))}
           </nav>
           <div className="flex items-center gap-2 shrink-0">
-            <Link
-              href="/waitlist"
-              className="inline-flex rounded-full border border-border-warm bg-white text-primary px-3 py-2 text-xs sm:text-sm font-headline font-semibold"
-            >
-              Waitlist
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex rounded-full bg-secondary text-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-headline font-semibold hover:bg-[#8E3E2A] transition-colors"
-            >
-              <span className="sm:hidden">Book</span>
-              <span className="hidden sm:inline">Book a validation</span>
-            </Link>
+            <WaitlistButton size="sm" />
             <button
               type="button"
               className="2xl:hidden h-10 w-10 rounded-full border border-border-warm bg-white"

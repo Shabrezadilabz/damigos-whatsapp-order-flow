@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
+import { WaitlistButton } from "@/components/site/WaitlistButton";
 
 export const metadata: Metadata = { title: "Economics" };
 
@@ -39,9 +39,7 @@ export default function EconomicsPage() {
         <StoryImage src="/images/owner-phone-success.jpg" alt="Owner with phone" caption="Margin stays in the kitchen." />
       </div>
 
-      <Link href="/contact" className="cta-full sm:w-auto inline-flex mt-10 rounded-full bg-secondary text-white px-7 py-3.5 font-bold text-sm">
-        Run this on your last 30 days of GMV
-      </Link>
+      <WaitlistButton className="mt-10" />
     </main>
   );
 }

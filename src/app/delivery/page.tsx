@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips } from "@/components/site/StepChips";
+import { WaitlistButton } from "@/components/site/WaitlistButton";
 import { MovingPartners } from "@/components/site/MovingPartners";
 
 export const metadata: Metadata = { title: "Delivery Partners" };
@@ -85,12 +85,7 @@ export default function DeliveryPage() {
         <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
           Want this wired to your city partners?
         </h2>
-        <Link
-          href="/contact"
-          className="cta-full sm:w-auto inline-flex justify-center mt-6 rounded-full bg-secondary text-white px-8 py-3.5 font-bold text-sm"
-        >
-          Book a validation session
-        </Link>
+        <WaitlistButton className="mt-6 mx-auto" />
       </section>
     </main>
   );

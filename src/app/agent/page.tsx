@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PhoneFrame } from "@/components/site/PhoneFrame";
 import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips } from "@/components/site/StepChips";
+import { WaitlistButton } from "@/components/site/WaitlistButton";
 
 export const metadata: Metadata = { title: "WhatsApp Agent Flow" };
 
@@ -54,13 +55,8 @@ export default function AgentPage() {
             <div className="mt-5">
               <StepChips steps={["Say HI", "Pick cuisine", "Redeem", "Pay"]} tone="dark" />
             </div>
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
-              <Link href="/crm" className="cta-full inline-flex justify-center rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
-                Guest CRM dashboard
-              </Link>
-              <Link href="/contact" className="cta-full inline-flex justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold">
-                Validate this flow
-              </Link>
+            <div className="mt-8">
+              <WaitlistButton />
             </div>
           </div>
           <PhoneFrame
@@ -121,12 +117,7 @@ export default function AgentPage() {
         <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
           Want this agent live on your number?
         </h2>
-        <Link
-          href="/contact"
-          className="inline-flex mt-6 rounded-full bg-secondary text-white px-8 py-3.5 font-bold text-sm"
-        >
-          Book a validation session
-        </Link>
+        <WaitlistButton className="mt-6 mx-auto" />
       </section>
     </main>
   );

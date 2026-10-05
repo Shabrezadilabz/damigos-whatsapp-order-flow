@@ -22,6 +22,7 @@
   --color-error: #ba1a1a;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-cursive: var(--font-great-vibes), Arial, cursive;
 }
 
 * { box-sizing: border-box; }
@@ -82,6 +83,17 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 639px) {
   .cta-full { width: 100%; justify-content: center; }
+}
+
+.btn-waitlist {
+  font-family: var(--font-great-vibes), Arial, cursive;
+  font-weight: 400;
+  background: linear-gradient(135deg, #9a452f 0%, #c45a3a 48%, #d99b38 100%);
+  box-shadow: 0 8px 22px -6px rgba(154, 69, 47, 0.55);
+  letter-spacing: 0.02em;
+}
+.btn-waitlist:hover {
+  filter: brightness(1.06);
 }
 
 @keyframes marquee-left {

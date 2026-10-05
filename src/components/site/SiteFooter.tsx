@@ -21,8 +21,7 @@ export function SiteFooter() {
             <li><Link href="/campaigns">Campaigns & AI posters</Link></li>
             <li><Link href="/delivery">Delivery partners</Link></li>
             <li><Link href="/economics">Economics</Link></li>
-            <li><Link href="/waitlist">Join a waitlist</Link></li>
-            <li><Link href="/contact">Book a validation</Link></li>
+            <li><Link href="/waitlist">Join waitlist</Link></li>
           </ul>
         </div>
         <div>
