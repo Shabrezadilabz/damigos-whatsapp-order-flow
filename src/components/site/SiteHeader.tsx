@@ -7,10 +7,10 @@ import { DamigosLogo } from "./DamigosLogo";
 import { cn } from "@/lib/cn";
 
 const LINKS = [
-  { href: "/", label: "The flow" },
-  { href: "/architecture", label: "Architecture" },
-  { href: "/economics", label: "Economics" },
-  { href: "/contact", label: "Validate" },
+  { href: "/", label: "The flow", match: "/" },
+  { href: "/architecture", label: "Architecture", match: "/architecture" },
+  { href: "/economics", label: "Economics", match: "/economics" },
+  { href: "/contact", label: "Validate", match: "/contact" },
 ];
 
 export function SiteHeader() {
@@ -52,7 +52,7 @@ export function SiteHeader() {
                 href={l.href}
                 className={cn(
                   "px-3 py-1.5 rounded-full text-sm font-semibold",
-                  pathname === l.href
+                  pathname === l.match
                     ? "bg-badge-peach-bg text-badge-peach-text"
                     : "text-on-surface-variant hover:text-on-surface",
                 )}
