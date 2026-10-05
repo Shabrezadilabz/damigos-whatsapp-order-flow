@@ -16,7 +16,7 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm text-white/75">
             <li><Link href="/">The order flow</Link></li>
             <li><Link href="/packaging">Packaging QR</Link></li>
-            <li><Link href="/agent">WhatsApp agent</Link></li>
+            <li><Link href="/agent">Hero agent</Link></li>
             <li><Link href="/crm">Loyalty & digital card</Link></li>
             <li><Link href="/campaigns">Campaigns & AI posters</Link></li>
             <li><Link href="/delivery">Delivery partners</Link></li>

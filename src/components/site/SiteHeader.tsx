@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 const LINKS = [
   { href: "/", label: "The flow", match: "/" },
   { href: "/packaging", label: "Packaging", match: "/packaging" },
-  { href: "/agent", label: "WA agent", match: "/agent" },
+  { href: "/agent", label: "Hero agent", match: "/agent" },
   { href: "/crm", label: "Loyalty", match: "/crm" },
   { href: "/campaigns", label: "Campaigns", match: "/campaigns" },
   { href: "/delivery", label: "Delivery", match: "/delivery" },

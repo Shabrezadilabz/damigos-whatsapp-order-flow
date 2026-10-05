@@ -16,7 +16,7 @@ const AUTO = [
   "Pick trigger (festival / payday / weekend / geo / custom)",
   "AI builds poster + WhatsApp copy from your menu & brand",
   "Geo radius targets nearby phones (or blast your CRM list)",
-  "Guest taps → WhatsApp agent → order / redeem — tracked in CRM",
+  "Guest taps → Hero agent → order / redeem — tracked in CRM",
 ];
 
 export default function CampaignsPage() {
@@ -75,7 +75,7 @@ export default function CampaignsPage() {
               {[
                 "Brand logo + colors locked",
                 "Dish photos from your catalog",
-                "Offer line + CTA into WhatsApp agent",
+                "Offer line + CTA into Hero agent",
                 "A/B variants optional — still automatic",
               ].map((t) => (
                 <li key={t} className="flex gap-2">

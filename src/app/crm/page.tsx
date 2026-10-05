@@ -31,7 +31,7 @@ export default function CrmPage() {
               who re-ordered, and who redeemed at the table.
             </p>
             <Link href="/agent" className="inline-flex mt-7 rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
-              WhatsApp agent flow
+              Hero agent flow
             </Link>
           </div>
           <StoryImage

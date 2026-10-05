@@ -43,18 +43,24 @@ export default function HomePage() {
       <section className="bg-hero-navy-surface text-surface-ivory overflow-hidden">
         <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="reveal-target min-w-0">
-            <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-accent-gold text-[11px] font-bold uppercase tracking-wider mb-5">
+            <p className="font-headline text-xl sm:text-2xl text-accent-gold mb-4">
               Pehle rishta. Phir reach. Phir 3x.
             </p>
-            <h1 className="font-headline text-[1.75rem] sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-[1.12]">
-              Cloud kitchen chala rahe ho?
+            <h1 className="font-headline text-[2.15rem] sm:text-5xl lg:text-6xl tracking-tight leading-[1.15]">
+              <span className="text-accent-gold">Cloud kitchen chala rahe ho?</span>
               <br />
               <span className="text-secondary-container">Takeaway sambhal rahe ho?</span>
             </h1>
-            <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl leading-relaxed">
-              Jo order nikal raha hai — us customer ka data tumhara hai? Aggregator number chhupa deta hai.
-              Hum data tumhe dete hain. Pehle wale orders se personalized rewards. Campaigns unke liye, auto.
-              Online appearance + orders — <span className="text-accent-gold font-bold">3x</span> ki taraf.
+            <p className="mt-5 text-base sm:text-lg max-w-xl leading-relaxed">
+              <span className="text-[#FFD89A] font-semibold">Jo order nikal raha hai — data tumhara hai?</span>
+              {" "}
+              <span className="text-white/70">Aggregator number chhupa deta hai. Hum data dete hain.</span>
+              {" "}
+              <span className="text-secondary-container font-semibold">Pehle orders se personalized rewards.</span>
+              {" "}
+              <span className="text-white/70">Campaigns auto.</span>
+              {" "}
+              <span className="text-accent-gold font-bold">Online + orders 3x.</span>
             </p>
             <div className="mt-8">
               <WaitlistButton />
@@ -75,8 +81,8 @@ export default function HomePage() {
           <div className="reveal-target min-w-0">
             <StoryImage
               src="/images/hero-whatsapp-order.jpg"
-              alt="WhatsApp food order on a phone next to a kraft takeout bag"
-              caption="WhatsApp pe order. Data kitchen ka. Rewards automatic."
+              alt="WhatsApp food order on a phone next to bag and box with QR stickers"
+              caption="QR on bag + box. Hero agent as D'aMigo's in WhatsApp."
               priority
             />
           </div>
@@ -90,25 +96,33 @@ export default function HomePage() {
             {
               q: "Cloud kitchen chala rahe ho?",
               a: "Are you running a cloud kitchen? Menu nikalta hai, guest ka number nahi milta.",
+              qClass: "text-secondary",
+              card: "bg-white border-border-warm",
             },
             {
               q: "Restaurant se takeaway?",
               a: "Handling takeaway from your restaurant? Parcel jaata hai — next order kisi aur app pe.",
+              qClass: "text-accent-gold",
+              card: "bg-[#fff5e1] border-[#F5E6CC]",
             },
             {
               q: "Customer data kiska hai?",
               a: "Do you own the people who are ordering? Hum dete hain phone, history, address — tumhara CRM.",
+              qClass: "text-primary",
+              card: "bg-[#f3ece3] border-border-warm",
             },
             {
               q: "Rewards + campaigns auto?",
               a: "Pehle orders se personalized rewards. Festival, payday, geo posters — koi intern nahi.",
+              qClass: "text-[#9a452f]",
+              card: "bg-[#fae8e1] border-[#f0d4c8]",
             },
           ].map((d) => (
             <article
               key={d.q}
-              className="reveal-target rounded-2xl border border-border-warm bg-white p-5 sm:p-6 shadow-[0_8px_28px_-8px_rgba(29,42,74,0.08)]"
+              className={`reveal-target rounded-2xl border p-5 sm:p-6 shadow-[0_8px_28px_-8px_rgba(29,42,74,0.08)] ${d.card}`}
             >
-              <p className="font-headline text-lg sm:text-xl font-bold text-primary">{d.q}</p>
+              <p className={`font-headline text-xl sm:text-2xl leading-snug ${d.qClass}`}>{d.q}</p>
               <p className="mt-2 text-sm text-text-muted leading-relaxed">{d.a}</p>
             </article>
           ))}
@@ -270,7 +284,7 @@ export default function HomePage() {
             </h2>
             <StepChips steps={["Say HI", "Pick cuisine", "Redeem rewards", "Pay in chat"]} />
             <p className="mt-4 text-text-muted">
-              Guided WhatsApp agent, in-chat webview, digital loyalty card, and a CRM that counts orders,
+              Hero agent in WhatsApp as D&apos;aMigo&apos;s, in-chat webview, digital loyalty card, and a CRM that counts orders,
               claims, re-orders, and dine-in redemptions.
             </p>
           </div>
@@ -315,7 +329,7 @@ export default function HomePage() {
           </div>
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 reveal-target">
             <Link href="/agent" className="cta-full inline-flex justify-center rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
-              Full WhatsApp agent flow
+              Full Hero agent flow
             </Link>
             <Link href="/crm" className="cta-full inline-flex justify-center rounded-full border border-border-warm bg-white text-primary px-6 py-3 text-sm font-semibold">
               Guest CRM & loyalty calculator

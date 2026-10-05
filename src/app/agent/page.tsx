@@ -5,7 +5,7 @@ import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips } from "@/components/site/StepChips";
 import { WaitlistButton } from "@/components/site/WaitlistButton";
 
-export const metadata: Metadata = { title: "WhatsApp Agent Flow" };
+export const metadata: Metadata = { title: "Hero Agent" };
 
 const STEPS = [
   {
@@ -44,13 +44,13 @@ export default function AgentPage() {
       <section className="bg-hero-navy-surface text-surface-ivory">
         <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent-gold mb-3">Hero agent flow</p>
-            <h1 className="font-headline text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              Order without leaving WhatsApp.
+            <p className="font-headline text-xl text-accent-gold mb-3">Hero agent</p>
+            <h1 className="font-headline text-[2.15rem] sm:text-5xl tracking-tight leading-[1.15]">
+              D&apos;aMigo&apos;s on WhatsApp.
             </h1>
             <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl">
-              The whole ordering brain lives inside WhatsApp: a guided agent, rich cuisine cards,
-              in-chat webview, and redeem-before-pay — for delivery and dine-in claims.
+              The Hero agent greets as D&apos;aMigo&apos;s — HI, cuisine cards, in-chat webview, redeem-before-pay.
+              Delivery and dine-in claims. Guest never leaves the thread.
             </p>
             <div className="mt-5">
               <StepChips steps={["Say HI", "Pick cuisine", "Redeem", "Pay"]} tone="dark" />
@@ -61,8 +61,8 @@ export default function AgentPage() {
           </div>
           <PhoneFrame
             src="/images/whatsapp-hi-agent.jpg"
-            alt="WhatsApp agent greeting with HI and option buttons"
-            caption="Step 1 — Guest says HI. Agent offers paths."
+            alt="Hero agent greeting as D'aMigo's with HI and option buttons"
+            caption="Hero agent — D'aMigo's greets. Guest says HI."
             className="[&_figcaption]:text-white/70"
           />
         </div>
