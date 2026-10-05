@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips, TextLink } from "@/components/site/StepChips";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
 
 const STEPS = [
   {
@@ -38,44 +39,45 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-canvas-cream border-b border-border-warm overflow-hidden">
-        <div className="page-wrap py-8 sm:py-12 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+      <section className="bg-hero-navy-surface text-surface-ivory overflow-hidden">
+        <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="reveal-target min-w-0">
-            <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-badge-peach-bg text-badge-peach-text text-[11px] font-bold uppercase tracking-wider mb-5">
-              WhatsApp food delivery architecture
+            <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-accent-gold text-[11px] font-bold uppercase tracking-wider mb-5">
+              Pehle rishta. Phir reach. Phir 3x.
             </p>
-            <h1 className="font-headline text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-[1.12]">
-              Order on WhatsApp.
+            <h1 className="font-headline text-[1.75rem] sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-[1.12]">
+              Cloud kitchen chala rahe ho?
               <br />
-              <span className="text-secondary">Own the guest.</span>
+              <span className="text-secondary-container">Takeaway sambhal rahe ho?</span>
             </h1>
-            <p className="mt-5 text-base sm:text-lg text-text-muted max-w-xl leading-relaxed">
-              A direct order rail that lives inside chat: scan the parcel QR, pick the menu, pay on UPI, kitchen packs, rider delivers.
-              Aggregators take 28–34%. You keep the relationship — and 0% commission.
+            <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl leading-relaxed">
+              Jo order nikal raha hai — us customer ka data tumhara hai? Aggregator number chhupa deta hai.
+              Hum data tumhe dete hain. Pehle wale orders se personalized rewards. Campaigns unke liye, auto.
+              Online appearance + orders — <span className="text-accent-gold font-bold">3x</span> ki taraf.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link
-                href="/contact"
+                href="/waitlist"
                 className="cta-full inline-flex items-center justify-center rounded-full bg-secondary text-white px-6 sm:px-7 py-3.5 font-headline text-sm font-bold shadow-[0_4px_16px_rgba(154,69,47,0.28)]"
               >
-                Validate this with us
+                Join a waitlist
               </Link>
               <Link
-                href="#flow"
-                className="cta-full inline-flex items-center justify-center rounded-full border border-border-warm bg-white text-primary px-6 sm:px-7 py-3.5 font-headline text-sm font-semibold"
+                href="/contact"
+                className="cta-full inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 text-white px-6 sm:px-7 py-3.5 font-headline text-sm font-semibold"
               >
-                See the 4-step flow
+                Book a validation
               </Link>
             </div>
-            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-border-warm">
+            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-white/15">
               {[
+                ["3x", "Orders + presence"],
                 ["0%", "Commission"],
-                ["1 scan", "To reorder"],
                 ["100%", "Guest data yours"],
               ].map(([k, v]) => (
                 <div key={v} className="min-w-0">
-                  <p className="font-headline text-lg sm:text-2xl font-bold text-primary">{k}</p>
-                  <p className="text-[11px] sm:text-xs text-text-muted leading-snug">{v}</p>
+                  <p className="font-headline text-lg sm:text-2xl font-bold text-white">{k}</p>
+                  <p className="text-[11px] sm:text-xs text-white/60 leading-snug">{v}</p>
                 </div>
               ))}
             </div>
@@ -84,10 +86,58 @@ export default function HomePage() {
             <StoryImage
               src="/images/hero-whatsapp-order.jpg"
               alt="WhatsApp food order on a phone next to a kraft takeout bag"
-              caption="The order happens in WhatsApp. The bag is yours."
+              caption="WhatsApp pe order. Data kitchen ka. Rewards automatic."
               priority
             />
           </div>
+        </div>
+      </section>
+
+      {/* Hindi-English punch questions */}
+      <section className="bg-canvas-cream border-b border-border-warm">
+        <div className="page-wrap py-10 sm:py-14 grid sm:grid-cols-2 gap-4">
+          {[
+            {
+              q: "Cloud kitchen chala rahe ho?",
+              a: "Are you running a cloud kitchen? Menu nikalta hai, guest ka number nahi milta.",
+            },
+            {
+              q: "Restaurant se takeaway?",
+              a: "Handling takeaway from your restaurant? Parcel jaata hai — next order kisi aur app pe.",
+            },
+            {
+              q: "Customer data kiska hai?",
+              a: "Do you own the people who are ordering? Hum dete hain phone, history, address — tumhara CRM.",
+            },
+            {
+              q: "Rewards + campaigns auto?",
+              a: "Pehle orders se personalized rewards. Festival, payday, geo posters — koi intern nahi.",
+            },
+          ].map((d) => (
+            <article
+              key={d.q}
+              className="reveal-target rounded-2xl border border-border-warm bg-white p-5 sm:p-6 shadow-[0_8px_28px_-8px_rgba(29,42,74,0.08)]"
+            >
+              <p className="font-headline text-lg sm:text-xl font-bold text-primary">{d.q}</p>
+              <p className="mt-2 text-sm text-text-muted leading-relaxed">{d.a}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="waitlist" className="page-wrap py-10 sm:py-16 md:py-20 grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+        <div className="min-w-0 reveal-target">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Join a waitlist</p>
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
+            Order details do. Hum rewards + campaigns on karenge.
+          </h2>
+          <p className="mt-4 text-text-muted leading-relaxed">
+            Kitne orders, ticket size, cloud kitchen ya takeaway, data hai ya nahi — form mein likho.
+            Waitlist pe lage. Hum guest data, personalized rewards (pehle wale orders se) aur campaigns automate karte hain.
+          </p>
+        </div>
+        <div className="reveal-target min-w-0">
+          <WaitlistForm />
         </div>
       </section>
 
@@ -352,17 +402,25 @@ export default function HomePage() {
           />
         </div>
         <div className="reveal-target min-w-0">
-          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">Enter the market with a rail you can explain in 30 seconds.</h2>
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">Waitlist pe aao. Data + rewards automatic.</h2>
           <p className="mt-4 text-text-muted leading-relaxed">
-            Packaging QR, WhatsApp agent, AI campaigns, digital loyalty, delivery partners, and CRM.
-            Everything automated. 0% commission. Founding cohort: first 10 ambitious brands.
+            Hum guest data dete hain. Pehle orders se personal rewards. Campaigns unke naam pe.
+            Online dikhna aur orders — 3x. Cloud kitchen ya takeaway, form mein order details bharo.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex mt-6 rounded-full bg-secondary text-white px-7 py-3.5 font-headline text-sm font-bold"
-          >
-            Apply for founding cohort
-          </Link>
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/waitlist"
+              className="cta-full inline-flex justify-center rounded-full bg-secondary text-white px-7 py-3.5 font-headline text-sm font-bold"
+            >
+              Join a waitlist
+            </Link>
+            <Link
+              href="/contact"
+              className="cta-full inline-flex justify-center rounded-full border border-border-warm bg-white text-primary px-7 py-3.5 font-headline text-sm font-semibold"
+            >
+              Book a validation
+            </Link>
+          </div>
         </div>
       </section>
     </main>

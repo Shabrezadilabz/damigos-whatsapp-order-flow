@@ -33,9 +33,9 @@ export function SiteHeader() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 pt-[env(safe-area-inset-top)]">
       <div className="bg-primary-container text-on-primary py-1.5 px-3 sm:px-4 text-center">
-        <Link href="/contact" className="text-[10px] sm:text-xs font-headline font-semibold text-secondary-container hover:text-white">
-          <span className="sm:hidden">WhatsApp orders · 0% commission</span>
-          <span className="hidden sm:inline">WhatsApp order rail · 0% commission · Founding cohort 2026</span>
+        <Link href="/waitlist" className="text-[10px] sm:text-xs font-headline font-semibold text-secondary-container hover:text-white">
+          <span className="sm:hidden">Waitlist · 0% commission · 3x orders</span>
+          <span className="hidden sm:inline">Cloud kitchen + takeaway waitlist · guest data yours · 3x orders</span>
         </Link>
       </div>
       <div
@@ -65,6 +65,12 @@ export function SiteHeader() {
             ))}
           </nav>
           <div className="flex items-center gap-2 shrink-0">
+            <Link
+              href="/waitlist"
+              className="inline-flex rounded-full border border-border-warm bg-white text-primary px-3 py-2 text-xs sm:text-sm font-headline font-semibold"
+            >
+              Waitlist
+            </Link>
             <Link
               href="/contact"
               className="inline-flex rounded-full bg-secondary text-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-headline font-semibold hover:bg-[#8E3E2A] transition-colors"
