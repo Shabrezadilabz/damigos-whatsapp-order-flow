@@ -18,10 +18,10 @@ export default function CrmPage() {
   return (
     <main>
       <section className="bg-canvas-cream border-b border-border-warm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
+        <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Guest CRM</p>
-            <h1 className="font-headline text-4xl sm:text-5xl font-extrabold text-primary tracking-tight">
+            <h1 className="font-headline text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
               See every order.
               <br />
               <span className="text-secondary">Every claim. Every return.</span>
@@ -43,7 +43,7 @@ export default function CrmPage() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <section className="page-wrap py-10 sm:py-14 md:py-16">
         <h2 className="font-headline text-2xl font-bold text-primary mb-6">What the dashboard shows</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {METRICS.map((m) => (
@@ -57,16 +57,18 @@ export default function CrmPage() {
       </section>
 
       <section className="bg-surface-ivory border-y border-border-warm py-12 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
+        <div className="page-wrap grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Digital loyalty card</p>
-            <h2 className="font-headline text-3xl font-bold text-primary">A wallet in WhatsApp — not another app.</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
+              One digital card per guest — separate balance, separate history.
+            </h2>
             <ul className="mt-5 space-y-3 text-text-muted">
               {[
-                "Bean Coins / points balance live on the guest’s phone",
-                "Earn on delivery, takeaway, and dine-in",
-                "Redeem dessert / discount at the table by scanning QR",
-                "Same identity across packaging QR and tabletop QR",
+                "Each customer gets their own card tied to WhatsApp / phone",
+                "Points & rewards update automatically after every paid order",
+                "Earn on delivery, takeaway, and dine-in — same wallet",
+                "No plastic punch card. No second app to download",
               ].map((t) => (
                 <li key={t} className="flex gap-3">
                   <span className="material-symbols-outlined text-secondary">check_circle</span>
@@ -78,28 +80,57 @@ export default function CrmPage() {
           <StoryImage
             src="/images/loyalty-digital-card.jpg"
             alt="Digital loyalty card on phone with points and dine-in QR"
-            caption="Points, progress to reward, dine-in redeem QR — one card."
+            caption="Per-guest card: points, rewards progress, redeem QR."
           />
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid lg:grid-cols-2 gap-10 items-center">
-        <StoryImage
-          src="/images/dinein-scan-redeem.jpg"
-          alt="Guest redeeming loyalty points at dine-in table"
-          caption="Dine-in: scan table QR, claim the reward, bill updates."
-        />
-        <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Dine-in redeem</p>
-          <h2 className="font-headline text-3xl font-bold text-primary">Rewards earned on delivery work at the table.</h2>
-          <p className="mt-4 text-text-muted leading-relaxed">
-            Guests who first ordered via WhatsApp delivery can walk in, open their digital card, and redeem —
-            dessert, discount, or a free item — without a plastic punch card.
+      <section className="page-wrap py-10 sm:py-14 md:py-16">
+        <div className="max-w-2xl mb-8">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Redeem both ways</p>
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
+            Online redeem in chat. Dine-in redeem at the table.
+          </h2>
+          <p className="mt-3 text-text-muted">
+            Same points. Same guest. Apply rewards before UPI on a WhatsApp delivery — or walk in,
+            open the card, scan the table QR, and claim dessert / discount on the bill.
           </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+          <div className="min-w-0">
+            <StoryImage
+              src="/images/whatsapp-redeem-pay.jpg"
+              alt="Redeeming loyalty rewards inside WhatsApp before pay"
+              caption="Online: apply Bean Coins in the WhatsApp cart, pay the rest on UPI."
+            />
+            <h3 className="font-headline font-bold text-primary mt-4">Online / delivery redeem</h3>
+            <p className="text-sm text-text-muted mt-2">
+              Guest taps Claim Rewards or applies points in the in-chat webview. Discount line updates live. Kitchen still gets a clean ticket.
+            </p>
+          </div>
+          <div className="min-w-0">
+            <StoryImage
+              src="/images/dinein-scan-redeem.jpg"
+              alt="Guest redeeming loyalty points at dine-in table"
+              caption="Dine-in: open digital card → scan table QR → bill updates."
+            />
+            <h3 className="font-headline font-bold text-primary mt-4">Dine-in redeem</h3>
+            <p className="text-sm text-text-muted mt-2">
+              Points earned on delivery work at the table. Staff see the claim; CRM counts it as a dine-in redemption — automated, not handwritten.
+            </p>
+          </div>
+        </div>
+        <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+          <Link href="/campaigns" className="cta-full inline-flex justify-center rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
+            Campaigns & AI posters
+          </Link>
+          <Link href="/packaging" className="cta-full inline-flex justify-center rounded-full border border-border-warm bg-white text-primary px-6 py-3 text-sm font-semibold">
+            Packaging QR alignment
+          </Link>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <section className="page-wrap pb-16">
         <LoyaltyCalculator />
       </section>
     </main>

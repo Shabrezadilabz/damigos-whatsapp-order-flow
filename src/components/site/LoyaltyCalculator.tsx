@@ -72,7 +72,7 @@ export function LoyaltyCalculator() {
         <Field label="Of redemptions in dine-in" value={dineInShare} set={setDineInShare} min={10} max={80} suffix="%" />
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-3">
+      <div className="mt-8 grid grid-cols-1 min-[400px]:grid-cols-2 lg:grid-cols-3 gap-3">
         {[
           ["GMV modelled", `₹${math.gmv.toLocaleString("en-IN")}`],
           ["Points issued", math.pointsIssued.toLocaleString("en-IN")],
@@ -83,7 +83,7 @@ export function LoyaltyCalculator() {
         ].map(([k, v]) => (
           <div key={k} className="rounded-2xl bg-canvas-cream border border-border-warm p-4">
             <p className="text-[11px] text-text-muted uppercase tracking-wide font-semibold">{k}</p>
-            <p className="font-headline text-lg font-bold text-primary mt-1">{v}</p>
+            <p className="font-headline text-base sm:text-lg font-bold text-primary mt-1 break-words">{v}</p>
           </div>
         ))}
       </div>

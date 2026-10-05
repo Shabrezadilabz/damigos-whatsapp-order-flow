@@ -8,8 +8,11 @@ import { cn } from "@/lib/cn";
 
 const LINKS = [
   { href: "/", label: "The flow", match: "/" },
+  { href: "/packaging", label: "Packaging", match: "/packaging" },
   { href: "/agent", label: "WA agent", match: "/agent" },
-  { href: "/crm", label: "Guest CRM", match: "/crm" },
+  { href: "/crm", label: "Loyalty", match: "/crm" },
+  { href: "/campaigns", label: "Campaigns", match: "/campaigns" },
+  { href: "/delivery", label: "Delivery", match: "/delivery" },
   { href: "/architecture", label: "Architecture", match: "/architecture" },
   { href: "/economics", label: "Economics", match: "/economics" },
   { href: "/contact", label: "Validate", match: "/contact" },
@@ -30,10 +33,11 @@ export function SiteHeader() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50">
-      <div className="bg-primary-container text-on-primary py-1.5 px-4 text-center">
-        <Link href="/contact" className="text-[11px] sm:text-xs font-headline font-semibold text-secondary-container hover:text-white">
-          WhatsApp order rail · 0% commission · Founding cohort 2026
+    <header className="fixed top-0 inset-x-0 z-50 pt-[env(safe-area-inset-top)]">
+      <div className="bg-primary-container text-on-primary py-1.5 px-3 sm:px-4 text-center">
+        <Link href="/contact" className="text-[10px] sm:text-xs font-headline font-semibold text-secondary-container hover:text-white">
+          <span className="sm:hidden">WhatsApp orders · 0% commission</span>
+          <span className="hidden sm:inline">WhatsApp order rail · 0% commission · Founding cohort 2026</span>
         </Link>
       </div>
       <div
@@ -44,16 +48,16 @@ export function SiteHeader() {
             : "bg-surface-ivory/90 backdrop-blur-md border-transparent",
         )}
       >
-        <div className="max-w-6xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between gap-3">
-          <DamigosLogo size="sm" className="sm:hidden" />
-          <DamigosLogo size="md" className="hidden sm:inline-flex" />
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+        <div className="page-wrap h-14 sm:h-16 flex items-center justify-between gap-2 min-w-0">
+          <DamigosLogo size="sm" className="sm:hidden shrink-0" />
+          <DamigosLogo size="md" className="hidden sm:inline-flex shrink-0" />
+          <nav className="hidden 2xl:flex items-center gap-0.5 min-w-0">
             {LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 className={cn(
-                  "px-2.5 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap",
+                  "px-2 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap",
                   pathname === l.match
                     ? "bg-badge-peach-bg text-badge-peach-text"
                     : "text-on-surface-variant hover:text-on-surface",
@@ -63,16 +67,16 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <Link
               href="/contact"
-              className="hidden sm:inline-flex rounded-full bg-secondary text-white px-4 py-2 text-sm font-headline font-semibold hover:bg-[#8E3E2A] transition-colors"
+              className="hidden md:inline-flex rounded-full bg-secondary text-white px-3 lg:px-4 py-2 text-sm font-headline font-semibold hover:bg-[#8E3E2A] transition-colors"
             >
               Book a validation
             </Link>
             <button
               type="button"
-              className="lg:hidden h-10 w-10 rounded-full border border-border-warm bg-white"
+              className="2xl:hidden h-10 w-10 rounded-full border border-border-warm bg-white"
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >
@@ -81,13 +85,13 @@ export function SiteHeader() {
           </div>
         </div>
         {open ? (
-          <div className="lg:hidden border-t border-border-warm px-4 py-3 space-y-1 bg-surface-ivory">
+          <div className="2xl:hidden border-t border-border-warm page-wrap py-3 space-y-1 bg-surface-ivory max-h-[70vh] overflow-y-auto">
             {LINKS.map((l) => (
               <Link key={l.href} href={l.href} className="block py-2.5 font-semibold text-primary">
                 {l.label}
               </Link>
             ))}
-            <Link href="/contact" className="block py-3 text-center rounded-full bg-secondary text-white font-semibold">
+            <Link href="/contact" className="block py-3 text-center rounded-full bg-secondary text-white font-semibold md:hidden">
               Book a validation
             </Link>
           </div>

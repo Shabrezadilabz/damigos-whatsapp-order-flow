@@ -17,7 +17,9 @@ export function PageShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background">
       <Reveal />
       <SiteHeader />
-      <div className="pt-[5.75rem] sm:pt-[6.25rem]">{children}</div>
+      <div className="pt-[calc(5.75rem+env(safe-area-inset-top))] sm:pt-[calc(6.25rem+env(safe-area-inset-top))]">
+        {children}
+      </div>
       <SiteFooter />
     </div>
   );

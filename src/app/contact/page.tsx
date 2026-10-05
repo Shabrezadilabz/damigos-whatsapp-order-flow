@@ -5,11 +5,11 @@ export const metadata: Metadata = { title: "Validate" };
 
 export default function ContactPage() {
   return (
-    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
-        <div>
+    <main className="page-wrap py-10 sm:py-14 md:py-16">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+        <div className="min-w-0">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary">Founding cohort 2026</p>
-          <h1 className="font-headline text-4xl font-extrabold text-primary mt-3">
+          <h1 className="font-headline text-[1.85rem] sm:text-4xl font-extrabold text-primary mt-3">
             Validate WhatsApp delivery with 10 brands.
           </h1>
           <p className="mt-4 text-text-muted leading-relaxed">

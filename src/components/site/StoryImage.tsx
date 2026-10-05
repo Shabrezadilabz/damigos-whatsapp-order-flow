@@ -20,7 +20,7 @@ export function StoryImage({
 }) {
   const sizes =
     ratio === "portrait"
-      ? "aspect-[3/4]"
+          ? "aspect-[4/5] md:aspect-[3/4]"
       : ratio === "square"
         ? "aspect-square"
         : ratio === "card"

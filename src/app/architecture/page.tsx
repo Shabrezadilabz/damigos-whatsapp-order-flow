@@ -15,21 +15,22 @@ const NODES = [
 
 export default function ArchitecturePage() {
   return (
-    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <main className="page-wrap py-10 sm:py-14 md:py-16">
       <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary">Validating the rail</p>
-      <h1 className="font-headline text-4xl font-extrabold text-primary mt-3 max-w-3xl">
+      <h1 className="font-headline text-[1.85rem] sm:text-4xl font-extrabold text-primary mt-3 max-w-3xl">
         WhatsApp in. Kitchen out. You own the middle.
       </h1>
       <p className="mt-4 text-lg text-text-muted max-w-2xl">
         Same operations you already run. Different owner of the guest. This is the architecture restaurants can evaluate by looking — not a 40-slide deck.
       </p>
 
-      <div className="mt-10 grid lg:grid-cols-2 gap-8 items-center">
+      <div className="mt-10 grid md:grid-cols-2 gap-6 md:gap-8 items-start">
         <StoryImage
           src="/images/whatsapp-chat-flow.jpg"
           alt="WhatsApp chat placing a food order"
           caption="Guest never leaves the thread."
           ratio="portrait"
+          className="max-w-sm mx-auto md:max-w-none"
         />
         <StoryImage
           src="/images/kitchen-pack-sticker.jpg"
@@ -59,7 +60,7 @@ export default function ArchitecturePage() {
         <StoryImage src="/images/rider-handoff.jpg" alt="Rider handoff" caption="Exit: bag + status in chat." />
       </div>
 
-      <Link href="/contact" className="inline-flex mt-10 rounded-full bg-secondary text-white px-7 py-3.5 font-bold text-sm">
+      <Link href="/contact" className="cta-full sm:w-auto inline-flex mt-10 rounded-full bg-secondary text-white px-7 py-3.5 font-bold text-sm">
         Book a 15-minute architecture walkthrough
       </Link>
     </main>

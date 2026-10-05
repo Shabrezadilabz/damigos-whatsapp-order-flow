@@ -39,12 +39,12 @@ export default function HomePage() {
     <main>
       {/* Hero */}
       <section className="bg-canvas-cream border-b border-border-warm overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 grid lg:grid-cols-2 gap-10 items-center">
-          <div className="reveal-target">
+        <div className="page-wrap py-8 sm:py-12 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="reveal-target min-w-0">
             <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-badge-peach-bg text-badge-peach-text text-[11px] font-bold uppercase tracking-wider mb-5">
               WhatsApp food delivery architecture
             </p>
-            <h1 className="font-headline text-4xl sm:text-5xl font-extrabold text-primary tracking-tight leading-[1.12]">
+            <h1 className="font-headline text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-[1.12]">
               Order on WhatsApp.
               <br />
               <span className="text-secondary">Own the guest.</span>
@@ -56,31 +56,31 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="cta-full inline-flex items-center justify-center rounded-full bg-secondary text-white px-7 py-3.5 font-headline text-sm font-bold shadow-[0_4px_16px_rgba(154,69,47,0.28)]"
+                className="cta-full inline-flex items-center justify-center rounded-full bg-secondary text-white px-6 sm:px-7 py-3.5 font-headline text-sm font-bold shadow-[0_4px_16px_rgba(154,69,47,0.28)]"
               >
                 Validate this with us
               </Link>
               <Link
                 href="#flow"
-                className="cta-full inline-flex items-center justify-center rounded-full border border-border-warm bg-white text-primary px-7 py-3.5 font-headline text-sm font-semibold"
+                className="cta-full inline-flex items-center justify-center rounded-full border border-border-warm bg-white text-primary px-6 sm:px-7 py-3.5 font-headline text-sm font-semibold"
               >
                 See the 4-step flow
               </Link>
             </div>
-            <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-border-warm">
+            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-border-warm">
               {[
                 ["0%", "Commission"],
                 ["1 scan", "To reorder"],
                 ["100%", "Guest data yours"],
               ].map(([k, v]) => (
-                <div key={v}>
-                  <p className="font-headline text-xl sm:text-2xl font-bold text-primary">{k}</p>
-                  <p className="text-xs text-text-muted">{v}</p>
+                <div key={v} className="min-w-0">
+                  <p className="font-headline text-lg sm:text-2xl font-bold text-primary">{k}</p>
+                  <p className="text-[11px] sm:text-xs text-text-muted leading-snug">{v}</p>
                 </div>
               ))}
             </div>
           </div>
-          <div className="reveal-target">
+          <div className="reveal-target min-w-0">
             <StoryImage
               src="/images/hero-whatsapp-order.jpg"
               alt="WhatsApp food order on a phone next to a kraft takeout bag"
@@ -92,18 +92,18 @@ export default function HomePage() {
       </section>
 
       {/* Problem */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div className="reveal-target order-2 lg:order-1">
+      <section className="page-wrap py-10 sm:py-16 md:py-20">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="reveal-target order-2 md:order-1 min-w-0">
             <StoryImage
               src="/images/economics-receipts.jpg"
               alt="Aggregator commission receipt versus direct WhatsApp 0% commission"
               caption="Same meal. Different owner of the guest."
             />
           </div>
-          <div className="reveal-target order-1 lg:order-2">
+          <div className="reveal-target order-1 md:order-2 min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">The leak</p>
-            <h2 className="font-headline text-3xl font-bold text-primary">You cook. They keep the diner.</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">You cook. They keep the diner.</h2>
             <ul className="mt-6 space-y-3 text-text-muted">
               {[
                 "28–34% commission on every delivery ticket.",
@@ -123,15 +123,15 @@ export default function HomePage() {
 
       {/* Packaging gallery */}
       <section className="bg-surface-ivory border-y border-border-warm py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="page-wrap">
           <div className="max-w-2xl mb-10 reveal-target">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Packaging is the store</p>
-            <h2 className="font-headline text-3xl font-bold text-primary">QR on the bag, the box, the tissue.</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">QR on the bag, the box, the tissue.</h2>
             <p className="mt-3 text-text-muted">
               If they can see it, they can reorder. Every surface that leaves your kitchen is a WhatsApp doorway.
             </p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <div className="reveal-target">
               <StoryImage
                 src="/images/parcel-qr-closeup.jpg"
@@ -161,20 +161,20 @@ export default function HomePage() {
       </section>
 
       {/* 4-step flow */}
-      <section id="flow" className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 space-y-16">
+      <section id="flow" className="page-wrap py-10 sm:py-16 md:py-20 space-y-12 md:space-y-16">
         <div className="reveal-target max-w-2xl">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">The flow</p>
-          <h2 className="font-headline text-3xl font-bold text-primary">Four pictures. The whole architecture.</h2>
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">Four pictures. The whole architecture.</h2>
         </div>
         {STEPS.map((s, i) => (
           <div
             key={s.n}
             className={cnGrid(i)}
           >
-            <div className={`reveal-target ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+            <div className={`reveal-target min-w-0 ${i % 2 === 1 ? "md:order-2" : ""}`}>
               <StoryImage src={s.img} alt={s.title} caption={s.cap} ratio={s.n === "02" ? "portrait" : "landscape"} />
             </div>
-            <div className={`reveal-target flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+            <div className={`reveal-target flex flex-col justify-center min-w-0 ${i % 2 === 1 ? "md:order-1" : ""}`}>
               <span className="font-headline text-sm font-bold text-accent-gold">{s.n}</span>
               <h3 className="font-headline text-2xl sm:text-3xl font-bold text-primary mt-2">{s.title}</h3>
               <p className="mt-4 text-text-muted leading-relaxed text-lg">{s.text}</p>
@@ -185,10 +185,10 @@ export default function HomePage() {
 
       {/* Architecture teaser */}
       <section className="bg-hero-navy-surface text-surface-ivory py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
-          <div className="reveal-target">
+        <div className="page-wrap grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="reveal-target min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent-gold mb-3">Under the hood</p>
-            <h2 className="font-headline text-3xl font-bold">WhatsApp in. Kitchen out. You own the middle.</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold">WhatsApp in. Kitchen out. You own the middle.</h2>
             <ol className="mt-6 space-y-3 text-white/80">
               {[
                 "Channels: parcel QR, Instagram bio, Google Maps, WhatsApp blast",
@@ -210,7 +210,7 @@ export default function HomePage() {
               Full architecture
             </Link>
           </div>
-          <div className="reveal-target">
+          <div className="reveal-target min-w-0">
             <StoryImage
               src="/images/kitchen-pack-sticker.jpg"
               alt="Kitchen packing with WhatsApp order ticket"
@@ -222,10 +222,10 @@ export default function HomePage() {
 
       {/* Agent + CRM teaser */}
       <section className="bg-canvas-cream border-y border-border-warm py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="page-wrap">
           <div className="reveal-target max-w-2xl mb-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Inside the chat</p>
-            <h2 className="font-headline text-3xl font-bold text-primary">
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
               From HI in chat to paid order
             </h2>
             <StepChips steps={["Say HI", "Pick cuisine", "Redeem rewards", "Pay in chat"]} />
@@ -234,7 +234,7 @@ export default function HomePage() {
               claims, re-orders, and dine-in redemptions.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5 items-stretch">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 items-stretch">
             {[
               {
                 src: "/images/whatsapp-hi-agent.jpg",
@@ -262,8 +262,8 @@ export default function HomePage() {
                 key={c.title}
                 className="reveal-target flex h-full flex-col rounded-2xl border border-border-warm bg-white overflow-hidden shadow-[0_8px_28px_-8px_rgba(29,42,74,0.10)]"
               >
-                <div className="relative h-72 sm:h-80 w-full bg-[#efe8dc] shrink-0">
-                  <Image src={c.src} alt={c.alt} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+                <div className="relative h-64 sm:h-72 lg:h-80 w-full bg-[#efe8dc] shrink-0">
+                  <Image src={c.src} alt={c.alt} fill className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw" />
                 </div>
                 <div className="p-4 flex-1">
                   <p className="text-[11px] font-bold text-accent-gold">{c.step}</p>
@@ -273,30 +273,89 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap gap-3 reveal-target">
-            <Link href="/agent" className="rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 reveal-target">
+            <Link href="/agent" className="cta-full inline-flex justify-center rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
               Full WhatsApp agent flow
             </Link>
-            <Link href="/crm" className="rounded-full border border-border-warm bg-white text-primary px-6 py-3 text-sm font-semibold">
+            <Link href="/crm" className="cta-full inline-flex justify-center rounded-full border border-border-warm bg-white text-primary px-6 py-3 text-sm font-semibold">
               Guest CRM & loyalty calculator
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Automation rail */}
+      <section className="bg-surface-ivory border-b border-border-warm py-14 sm:py-20">
+        <div className="page-wrap">
+          <div className="reveal-target max-w-2xl mb-10">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Fully automated</p>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
+              Packaging, campaigns, loyalty, delivery — no manual busywork.
+            </h2>
+            <p className="mt-3 text-text-muted">
+              QR alignment on bag / box / tissue, AI festival posters, geo offers for nearby people,
+              per-guest digital cards with online + dine-in redeem, and partners like Shadowfax, Dunzo, Porter.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            {[
+              {
+                href: "/packaging",
+                src: "/images/qr-alignment-packaging.jpg",
+                title: "Packaging QR",
+                cap: "Bag, lid, tissue — same alignment every order",
+              },
+              {
+                href: "/campaigns",
+                src: "/images/ai-campaign-posters.jpg",
+                title: "AI campaigns",
+                cap: "Festival, payday, weekend posters — auto",
+              },
+              {
+                href: "/campaigns",
+                src: "/images/geo-local-offers.jpg",
+                title: "Geo offers",
+                cap: "Nearby phones get the same poster",
+              },
+              {
+                href: "/delivery",
+                src: "/images/delivery-partners.jpg",
+                title: "Delivery partners",
+                cap: "Shadowfax, Dunzo, Porter, or your riders",
+              },
+            ].map((c) => (
+              <Link
+                key={c.title}
+                href={c.href}
+                className="reveal-target group flex h-full flex-col rounded-2xl border border-border-warm bg-white overflow-hidden shadow-[0_8px_28px_-8px_rgba(29,42,74,0.10)]"
+              >
+                <div className="relative h-48 sm:h-52 w-full bg-[#efe8dc] shrink-0">
+                  <Image src={c.src} alt={c.title} fill className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" sizes="(max-width: 640px) 100vw, 25vw" />
+                </div>
+                <div className="p-4 flex-1">
+                  <h3 className="font-headline font-bold text-primary">{c.title}</h3>
+                  <p className="text-sm text-text-muted mt-1">{c.cap}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Owner CTA */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
-        <div className="reveal-target">
+      <section className="page-wrap py-10 sm:py-16 md:py-20 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+        <div className="reveal-target min-w-0">
           <StoryImage
             src="/images/owner-phone-success.jpg"
             alt="Restaurant owner with WhatsApp order confirmations"
             caption="Direct orders. Your number. Your brand."
           />
         </div>
-        <div className="reveal-target">
-          <h2 className="font-headline text-3xl font-bold text-primary">Enter the market with a rail you can explain in 30 seconds.</h2>
+        <div className="reveal-target min-w-0">
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">Enter the market with a rail you can explain in 30 seconds.</h2>
           <p className="mt-4 text-text-muted leading-relaxed">
-            Packaging QR, WhatsApp agent, rewards, and CRM. 0% commission. Founding cohort: first 10 ambitious brands.
+            Packaging QR, WhatsApp agent, AI campaigns, digital loyalty, delivery partners, and CRM.
+            Everything automated. 0% commission. Founding cohort: first 10 ambitious brands.
           </p>
           <Link
             href="/contact"
@@ -311,5 +370,5 @@ export default function HomePage() {
 }
 
 function cnGrid(i: number) {
-  return `grid lg:grid-cols-2 gap-8 lg:gap-12 items-center`;
+  return `grid md:grid-cols-2 gap-6 md:gap-10 lg:gap-12 items-center`;
 }
