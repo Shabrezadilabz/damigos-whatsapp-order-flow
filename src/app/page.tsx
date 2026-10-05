@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
+import { HeroStoryVideo } from "@/components/site/HeroStoryVideo";
 import { StepChips, TextLink } from "@/components/site/StepChips";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 import { WaitlistButton } from "@/components/site/WaitlistButton";
@@ -79,12 +80,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="reveal-target min-w-0">
-            <StoryImage
-              src="/images/hero-whatsapp-order.jpg"
-              alt="WhatsApp food order on a phone next to bag and box with QR stickers"
-              caption="QR on bag + box. Hero agent as D'aMigo's in WhatsApp."
-              priority
-            />
+            <HeroStoryVideo caption="Delivery with QR bag → scan while eating → loyalty points → order on WhatsApp. Silent ~18s loop." />
           </div>
         </div>
       </section>
