@@ -10,7 +10,7 @@ type Props = {
   tagline?: boolean;
 };
 
-const heightPx = { sm: 28, md: 36, lg: 48, xl: 64 } as const;
+const heightPx = { sm: 38, md: 46, lg: 58, xl: 74 } as const;
 
 /**
  * Official cursive D'aMigo's logo from Stitch
@@ -35,7 +35,7 @@ export function DamigosLogo({
         "object-contain object-left",
         variant === "cream" && "brightness-0 invert",
       )}
-      style={{ width: w, height: h, maxWidth: "min(42vw, 180px)" }}
+      style={{ width: w, height: h, maxWidth: "min(52vw, 220px)" }}
       priority
     />
   );

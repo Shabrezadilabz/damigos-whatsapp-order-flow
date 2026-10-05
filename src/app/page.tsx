@@ -5,6 +5,8 @@ import { HeroStoryVideo } from "@/components/site/HeroStoryVideo";
 import { StepChips, TextLink } from "@/components/site/StepChips";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 import { WaitlistButton } from "@/components/site/WaitlistButton";
+import { PhoneFrame } from "@/components/site/PhoneFrame";
+import { WhatsAppMock } from "@/components/site/WhatsAppMock";
 
 const STEPS = [
   {
@@ -278,42 +280,26 @@ export default function HomePage() {
             <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
               From HI in chat to paid order
             </h2>
-            <StepChips steps={["Say HI", "Pick cuisine", "Redeem rewards", "Pay in chat"]} />
+            <StepChips steps={["Say HI", "In-chat site", "All offers", "Pay"]} />
             <p className="mt-4 text-text-muted">
-              Hero agent in WhatsApp as D&apos;aMigo&apos;s, in-chat webview, digital loyalty card, and a CRM that counts orders,
-              claims, re-orders, and dine-in redemptions.
+              Hero agent as D&apos;aMigo&apos;s. Offer links open each restaurant&apos;s live website inside WhatsApp.
+              Guests can also browse every offer themselves — then pay in chat.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 items-stretch">
             {[
-              {
-                src: "/images/whatsapp-hi-agent.jpg",
-                alt: "WhatsApp HI agent with option buttons",
-                step: "01",
-                title: "Guest says HI",
-                cap: "Order, dine-in, rewards, or a table",
-              },
-              {
-                src: "/images/whatsapp-cuisines.jpg",
-                alt: "WhatsApp cuisine category cards",
-                step: "02",
-                title: "Cuisines in chat",
-                cap: "North Indian, Chinese, biryani, and more",
-              },
-              {
-                src: "/images/crm-dashboard.jpg",
-                alt: "Guest CRM dashboard metrics",
-                step: "03",
-                title: "Owner sees the CRM",
-                cap: "Orders, claims, and re-orders",
-              },
+              { screen: "hi" as const, step: "01", title: "Guest says HI", cap: "Order, dine-in, rewards, or a table" },
+              { screen: "site" as const, step: "02", title: "Their site in chat", cap: "Each kitchen’s website, opened in the agent" },
+              { screen: "offers" as const, step: "03", title: "Browse all offers", cap: "Guest opens every deal themselves" },
             ].map((c) => (
               <article
                 key={c.title}
                 className="reveal-target flex h-full flex-col rounded-2xl border border-border-warm bg-white overflow-hidden shadow-[0_8px_28px_-8px_rgba(29,42,74,0.10)]"
               >
-                <div className="relative h-64 sm:h-72 lg:h-80 w-full bg-[#efe8dc] shrink-0">
-                  <Image src={c.src} alt={c.alt} fill className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw" />
+                <div className="flex items-center justify-center bg-[#efe8dc] py-6 px-3 min-h-[22rem]">
+                  <PhoneFrame className="max-w-[200px] sm:max-w-[220px]">
+                    <WhatsAppMock screen={c.screen} />
+                  </PhoneFrame>
                 </div>
                 <div className="p-4 flex-1">
                   <p className="text-[11px] font-bold text-accent-gold">{c.step}</p>

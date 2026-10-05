@@ -4,37 +4,44 @@ import { PhoneFrame } from "@/components/site/PhoneFrame";
 import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips } from "@/components/site/StepChips";
 import { WaitlistButton } from "@/components/site/WaitlistButton";
+import { WhatsAppMock, type AgentScreen } from "@/components/site/WhatsAppMock";
 
 export const metadata: Metadata = { title: "Hero Agent" };
 
-const STEPS = [
+const STEPS: {
+  n: string;
+  title: string;
+  text: string;
+  screen: AgentScreen;
+  options: string[];
+}[] = [
   {
     n: "01",
     title: "Guest sends HI",
-    text: "WhatsApp opens. The agent greets them and shows clear buttons — no hunting for a website.",
-    img: "/images/whatsapp-hi-agent.jpg",
+    text: "WhatsApp opens as D'aMigo's. The Hero agent greets them with clear paths — no hunting for a website.",
+    screen: "hi",
     options: ["Order Delivery", "Dine-in Menu", "Claim Rewards", "Book a Table"],
   },
   {
     n: "02",
-    title: "Pick cuisine in chat",
-    text: "On Order Delivery, cuisine cards appear inside chat: North Indian, South Indian, Chinese, Biryani, Desserts…",
-    img: "/images/whatsapp-cuisines.jpg",
-    options: ["North Indian", "South Indian", "Chinese", "Biryani", "Desserts", "Beverages"],
+    title: "Offer link opens the agent",
+    text: "Restaurant posts a weekend / payday offer. Guest taps Order on WhatsApp — the link lands in the live Hero agent, on that restaurant's number.",
+    screen: "offer",
+    options: ["Story / poster link", "WhatsApp deep link", "Same guest, same chat"],
   },
   {
     n: "03",
-    title: "In-chat webview cart",
-    text: "Items open in a WhatsApp webview menu. Add to cart, apply Bean Coins, see the discount line live.",
-    img: "/images/whatsapp-redeem-pay.jpg",
-    options: ["Apply rewards", "Edit cart", "Confirm address"],
+    title: "Restaurant website inside chat",
+    text: "We build each restaurant their own live site — menu, offers, cart — and open it as a webview inside the agent. The storefront is the conversation.",
+    screen: "site",
+    options: ["Own branded mini-site", "Opens in WhatsApp", "Order without leaving chat"],
   },
   {
     n: "04",
-    title: "Pay with rewards + UPI",
-    text: "Redeem points, pay the balance on UPI / WhatsApp Pay. Order ticket hits the kitchen. Loyalty updates on the digital card.",
-    img: "/images/whatsapp-redeem-pay.jpg",
-    options: ["UPI Pay", "Wallet", "Order confirmed"],
+    title: "See all offers — guest browses",
+    text: "They can also open All Offers themselves: festival, payday, weekend, geo. Tap any card, cart updates, pay with rewards + UPI.",
+    screen: "offers",
+    options: ["All Offers", "Sort by today / nearby", "Order this deal"],
   },
 ];
 
@@ -46,25 +53,45 @@ export default function AgentPage() {
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent-gold mb-3">Hero agent</p>
             <h1 className="font-headline text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-              D&apos;aMigo&apos;s on WhatsApp.
+              Offer link in. Restaurant site in chat. Order on WhatsApp.
             </h1>
             <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl">
-              The Hero agent greets as D&apos;aMigo&apos;s — HI, cuisine cards, in-chat webview, redeem-before-pay.
-              Delivery and dine-in claims. Guest never leaves the thread.
+              Each kitchen gets its own live website inside the Hero agent. A poster link opens it.
+              Guests can also browse every offer themselves — then pay without leaving WhatsApp.
             </p>
             <div className="mt-5">
-              <StepChips steps={["Say HI", "Pick cuisine", "Redeem", "Pay"]} tone="dark" />
+              <StepChips steps={["Offer link", "In-chat site", "All offers", "Pay"]} tone="dark" />
             </div>
             <div className="mt-8">
               <WaitlistButton />
             </div>
           </div>
-          <PhoneFrame
-            src="/images/whatsapp-hi-agent.jpg"
-            alt="Hero agent greeting as D'aMigo's with HI and option buttons"
-            caption="Hero agent — D'aMigo's greets. Guest says HI."
-            className="[&_figcaption]:text-white/70"
-          />
+          <PhoneFrame caption="Hero agent — D'aMigo's. Guest says HI." className="[&_figcaption]:text-white/70">
+            <WhatsAppMock screen="hi" />
+          </PhoneFrame>
+        </div>
+      </section>
+
+      <section className="bg-canvas-cream border-b border-border-warm py-10 sm:py-14">
+        <div className="page-wrap">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">How an offer becomes an order</p>
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary max-w-2xl">
+            Restaurant publishes a deal. Guest taps. Hero agent opens their site.
+          </h2>
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { n: "1", t: "Kitchen drops an offer", d: "Weekend thali, payday combo, festival poster — AI or your menu." },
+              { n: "2", t: "Link is the agent", d: "Story, SMS, QR, Google: one WhatsApp link to this restaurant’s Hero agent." },
+              { n: "3", t: "Live site in the thread", d: "Their branded website opens inside WhatsApp — not a separate app." },
+              { n: "4", t: "Or browse all offers", d: "Guest taps All Offers anytime and orders the deal themselves." },
+            ].map((s) => (
+              <article key={s.n} className="rounded-2xl border border-border-warm bg-white p-5">
+                <p className="font-headline text-sm font-bold text-accent-gold">{s.n.padStart(2, "0")}</p>
+                <h3 className="font-headline font-bold text-primary mt-1">{s.t}</h3>
+                <p className="text-sm text-text-muted mt-2 leading-relaxed">{s.d}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -72,7 +99,9 @@ export default function AgentPage() {
         {STEPS.map((s, i) => (
           <div key={s.n} className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
             <div className={i % 2 === 1 ? "md:order-2 min-w-0" : "min-w-0"}>
-              <PhoneFrame src={s.img} alt={s.title} caption={s.title} />
+              <PhoneFrame caption={s.title}>
+                <WhatsAppMock screen={s.screen} />
+              </PhoneFrame>
             </div>
             <div className={i % 2 === 1 ? "md:order-1 min-w-0" : "min-w-0"}>
               <span className="font-headline text-sm font-bold text-accent-gold">{s.n}</span>
@@ -96,10 +125,10 @@ export default function AgentPage() {
       <section className="bg-canvas-cream border-y border-border-warm py-14">
         <div className="page-wrap grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
-            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">Delivery redeem + dine-in claim = one guest.</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">One guest. Delivery redeem + dine-in claim.</h2>
             <p className="mt-4 text-text-muted leading-relaxed">
-              Points earned on a WhatsApp delivery order show on the digital card. Next visit, they redeem
-              at the table. CRM counts both as rewards claimed — and tracks the re-order.
+              Points earned on a WhatsApp delivery order sit on the digital card. Next visit, they redeem
+              at the table. Offers they tapped from a poster use the same cart.
             </p>
             <Link href="/crm" className="inline-flex mt-6 rounded-full border border-border-warm bg-white px-5 py-2.5 text-sm font-semibold text-primary">
               Guest CRM and loyalty calculator
