@@ -6,8 +6,8 @@ Same Hospitality Modernism theme as the main D'amigo's brand site.
 
 ## Live
 
-- GitHub: (this repo)
-- Vercel: after deploy
+- **GitHub:** https://github.com/Shabrezadilabz/damigos-whatsapp-order-flow
+- **Vercel:** https://damigos-whatsapp-order-flow.vercel.app
 
 ## Run locally
 
