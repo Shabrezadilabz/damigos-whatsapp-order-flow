@@ -22,7 +22,8 @@
   --color-error: #ba1a1a;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-logo: var(--font-edu-qld), "Edu QLD Hand", Arial, cursive;
+  --font-cursive: var(--font-great-vibes), "Great Vibes", cursive;
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -55,20 +56,19 @@ main, section, article, figure { min-width: 0; }
 @media (min-width: 1280px) {
   .page-wrap { padding-inline: max(2rem, env(safe-area-inset-left)) max(2rem, env(safe-area-inset-right)); }
 }
-h1, h2, h3, h4 {
-  font-family: var(--font-jakarta), system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
+
+h1, h2, h3, h4, h5, h6,
 .font-headline {
   font-family: var(--font-jakarta), system-ui, sans-serif;
 }
-.font-logo {
-  font-family: var(--font-edu-qld), "Edu QLD Hand", Arial, cursive;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
+
+.font-cursive {
+  font-family: var(--font-great-vibes), "Great Vibes", cursive;
 }
+.font-serif {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+}
+
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; height: auto; }
 
@@ -97,11 +97,11 @@ img { max-width: 100%; height: auto; }
 }
 
 .btn-waitlist {
-  font-family: var(--font-edu-qld), "Edu QLD Hand", Arial, cursive;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
   font-weight: 700;
   background: linear-gradient(135deg, #9a452f 0%, #c45a3a 48%, #d99b38 100%);
   box-shadow: 0 8px 22px -6px rgba(154, 69, 47, 0.55);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 .btn-waitlist:hover {
   filter: brightness(1.06);

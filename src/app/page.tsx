@@ -43,10 +43,10 @@ export default function HomePage() {
       <section className="bg-hero-navy-surface text-surface-ivory overflow-hidden">
         <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="reveal-target min-w-0">
-            <p className="font-logo text-3xl sm:text-4xl text-accent-gold mb-3">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent-gold mb-4">
               Pehle rishta. Phir reach. Phir 3x.
             </p>
-            <h1 className="font-logo text-[2.6rem] sm:text-6xl lg:text-7xl text-white">
+            <h1 className="font-headline text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
               <span className="text-accent-gold">Cloud kitchen chala rahe ho?</span>
               <br />
               <span className="text-secondary-container">Takeaway sambhal rahe ho?</span>
@@ -122,7 +122,7 @@ export default function HomePage() {
               key={d.q}
               className={`reveal-target rounded-2xl border p-5 sm:p-6 shadow-[0_8px_28px_-8px_rgba(29,42,74,0.08)] ${d.card}`}
             >
-              <p className={`font-logo text-[1.85rem] sm:text-3xl leading-snug ${d.qClass}`}>{d.q}</p>
+              <p className={`font-headline text-lg sm:text-xl font-bold leading-snug ${d.qClass}`}>{d.q}</p>
               <p className="mt-2 text-sm text-text-muted leading-relaxed">{d.a}</p>
             </article>
           ))}
@@ -132,7 +132,7 @@ export default function HomePage() {
       <section id="waitlist" className="page-wrap py-10 sm:py-16 md:py-20 grid md:grid-cols-2 gap-8 md:gap-10 items-start">
         <div className="min-w-0 reveal-target">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Join a waitlist</p>
-          <h2 className="font-logo text-3xl sm:text-4xl text-primary">
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
             Order details do. Hum rewards + campaigns on karenge.
           </h2>
           <p className="mt-4 text-text-muted leading-relaxed">
@@ -406,7 +406,7 @@ export default function HomePage() {
           />
         </div>
         <div className="reveal-target min-w-0">
-          <h2 className="font-logo text-4xl sm:text-5xl text-primary">Waitlist pe aao. Data + rewards automatic.</h2>
+          <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">Waitlist pe aao. Data + rewards automatic.</h2>
           <p className="mt-4 text-text-muted leading-relaxed">
             Hum guest data dete hain. Pehle orders se personal rewards. Campaigns unke naam pe.
             Online dikhna aur orders — 3x. Cloud kitchen ya takeaway, form mein order details bharo.

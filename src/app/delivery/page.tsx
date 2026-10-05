@@ -20,7 +20,7 @@ export default function DeliveryPage() {
         <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Last mile</p>
-            <h1 className="font-logo text-[2.4rem] sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight">
+            <h1 className="font-headline text-[1.85rem] sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
               Delivery partners on your rail.
               <br />
               <span className="text-secondary">Not on their marketplace.</span>

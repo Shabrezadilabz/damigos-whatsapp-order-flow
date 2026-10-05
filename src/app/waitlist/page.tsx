@@ -8,8 +8,8 @@ export default function WaitlistPage() {
     <main className="bg-canvas-cream border-b border-border-warm">
       <div className="page-wrap py-10 sm:py-14 md:py-16 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-10 items-start">
         <div className="min-w-0 lg:sticky lg:top-28">
-          <p className="font-logo text-3xl text-accent-gold">Founding waitlist</p>
-          <h1 className="font-logo text-[2.6rem] sm:text-5xl text-primary mt-2">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary">Founding waitlist</p>
+          <h1 className="font-headline text-[1.85rem] sm:text-4xl font-extrabold text-primary mt-2 tracking-tight">
             Order details do.
             <span className="text-secondary"> Rewards auto.</span>
           </h1>

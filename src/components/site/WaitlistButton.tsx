@@ -13,7 +13,7 @@ export function WaitlistButton({
       href="/waitlist"
       className={cn(
         "btn-waitlist inline-flex items-center justify-center rounded-full text-white shrink-0",
-        size === "sm" ? "px-4 py-2 text-[1.35rem] leading-none" : "cta-full px-8 py-3.5 text-[1.75rem] sm:text-[2rem] leading-none",
+        size === "sm" ? "px-4 py-2 text-xs sm:text-sm" : "cta-full px-7 py-3.5 text-sm",
         className,
       )}
     >

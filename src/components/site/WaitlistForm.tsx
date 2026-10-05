@@ -73,7 +73,7 @@ export function WaitlistForm() {
       encType="text/plain"
     >
       <div className="bg-hero-navy-surface px-5 sm:px-7 py-5">
-        <p className="font-logo text-[2rem] sm:text-4xl text-accent-gold leading-none">Join waitlist</p>
+        <p className="font-headline text-xl sm:text-2xl font-bold text-accent-gold leading-none">Join waitlist</p>
         <p className="mt-2 text-sm text-white/70">Cloud kitchen · takeaway · apna guest data</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {["0% commission", "Guest data yours", "3x orders"].map((t) => (
@@ -152,7 +152,7 @@ export function WaitlistForm() {
         </Field>
 
         <div>
-          <button type="submit" className="btn-waitlist w-full rounded-full text-white py-3.5 text-[1.85rem] leading-none">
+          <button type="submit" className="btn-waitlist w-full rounded-full text-white py-3.5 text-sm">
             Join waitlist
           </button>
           <p className="mt-3 text-xs text-text-muted text-center">Founding waitlist · partner@damigos.in · no spam</p>
