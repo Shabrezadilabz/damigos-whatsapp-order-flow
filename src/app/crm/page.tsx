@@ -31,7 +31,7 @@ export default function CrmPage() {
               who re-ordered, and who redeemed at the table.
             </p>
             <Link href="/agent" className="inline-flex mt-7 rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
-              See the WhatsApp agent flow →
+              WhatsApp agent flow
             </Link>
           </div>
           <StoryImage
@@ -87,7 +87,7 @@ export default function CrmPage() {
         <StoryImage
           src="/images/dinein-scan-redeem.jpg"
           alt="Guest redeeming loyalty points at dine-in table"
-          caption="Dine-in: scan table QR → claim reward → bill updates."
+          caption="Dine-in: scan table QR, claim the reward, bill updates."
         />
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Dine-in redeem</p>

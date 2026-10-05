@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PhoneFrame } from "@/components/site/PhoneFrame";
 import { StoryImage } from "@/components/site/StoryImage";
+import { StepChips } from "@/components/site/StepChips";
 
 export const metadata: Metadata = { title: "WhatsApp Agent Flow" };
 
@@ -15,7 +16,7 @@ const STEPS = [
   },
   {
     n: "02",
-    title: "Pick a path → cuisines",
+    title: "Pick cuisine in chat",
     text: "On Order Delivery, cuisine cards appear inside chat: North Indian, South Indian, Chinese, Biryani, Desserts…",
     img: "/images/whatsapp-cuisines.jpg",
     options: ["North Indian", "South Indian", "Chinese", "Biryani", "Desserts", "Beverages"],
@@ -44,12 +45,15 @@ export default function AgentPage() {
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent-gold mb-3">Hero agent flow</p>
             <h1 className="font-headline text-4xl sm:text-5xl font-extrabold tracking-tight">
-              HI → options → cuisines → pay with rewards.
+              Order without leaving WhatsApp.
             </h1>
             <p className="mt-5 text-lg text-white/75 max-w-xl">
               The whole ordering brain lives inside WhatsApp: a guided agent, rich cuisine cards,
               in-chat webview, and redeem-before-pay — for delivery and dine-in claims.
             </p>
+            <div className="mt-5">
+              <StepChips steps={["Say HI", "Pick cuisine", "Redeem", "Pay"]} tone="dark" />
+            </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/crm" className="rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
                 Guest CRM dashboard
@@ -100,14 +104,14 @@ export default function AgentPage() {
               Points earned on a WhatsApp delivery order show on the digital card. Next visit, they redeem
               at the table. CRM counts both as rewards claimed — and tracks the re-order.
             </p>
-            <Link href="/crm" className="inline-flex mt-6 text-sm font-bold text-secondary">
-              Open Guest CRM & loyalty calculator →
+            <Link href="/crm" className="inline-flex mt-6 rounded-full border border-border-warm bg-white px-5 py-2.5 text-sm font-semibold text-primary">
+              Guest CRM and loyalty calculator
             </Link>
           </div>
           <StoryImage
             src="/images/dinein-scan-redeem.jpg"
             alt="Dine-in loyalty redeem with digital card"
-            caption="Same wallet. Delivery earn → dine-in burn."
+            caption="Same wallet: earn on delivery, claim at the table."
           />
         </div>
       </section>

@@ -8,16 +8,24 @@ export function StoryImage({
   className,
   priority,
   ratio = "landscape",
+  object = "center",
 }: {
   src: string;
   alt: string;
   caption?: string;
   className?: string;
   priority?: boolean;
-  ratio?: "landscape" | "portrait" | "square";
+  ratio?: "landscape" | "portrait" | "square" | "card";
+  object?: "center" | "top";
 }) {
   const sizes =
-    ratio === "portrait" ? "aspect-[3/4]" : ratio === "square" ? "aspect-square" : "aspect-[16/10] sm:aspect-[16/9]";
+    ratio === "portrait"
+      ? "aspect-[3/4]"
+      : ratio === "square"
+        ? "aspect-square"
+        : ratio === "card"
+          ? "aspect-[4/5] sm:h-80 sm:aspect-auto"
+          : "aspect-[16/10] sm:aspect-[16/9]";
 
   return (
     <figure className={cn("group", className)}>
@@ -27,7 +35,10 @@ export function StoryImage({
           alt={alt}
           fill
           priority={priority}
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          className={cn(
+            "object-cover transition-transform duration-700 group-hover:scale-[1.03]",
+            object === "top" && "object-top",
+          )}
           sizes="(max-width: 768px) 100vw, 56vw"
         />
       </div>

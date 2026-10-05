@@ -55,7 +55,7 @@ export default function ArchitecturePage() {
       </div>
 
       <div className="mt-12 grid md:grid-cols-2 gap-6">
-        <StoryImage src="/images/hand-scanning-qr.jpg" alt="Scanning parcel QR" caption="Entry: camera → WhatsApp." />
+        <StoryImage src="/images/hand-scanning-qr.jpg" alt="Scanning parcel QR" caption="Entry: camera opens WhatsApp." />
         <StoryImage src="/images/rider-handoff.jpg" alt="Rider handoff" caption="Exit: bag + status in chat." />
       </div>
 

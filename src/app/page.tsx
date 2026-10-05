@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
+import { StepChips, TextLink } from "@/components/site/StepChips";
 
 const STEPS = [
   {
@@ -48,7 +50,7 @@ export default function HomePage() {
               <span className="text-secondary">Own the guest.</span>
             </h1>
             <p className="mt-5 text-base sm:text-lg text-text-muted max-w-xl leading-relaxed">
-              A direct order rail that lives inside chat: scan the parcel QR → menu → UPI → kitchen → rider.
+              A direct order rail that lives inside chat: scan the parcel QR, pick the menu, pay on UPI, kitchen packs, rider delivers.
               Aggregators take 28–34%. You keep the relationship — and 0% commission.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -114,9 +116,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <Link href="/economics" className="inline-flex mt-6 text-sm font-semibold text-secondary">
-              See the economics →
-            </Link>
+            <TextLink href="/economics">See the economics</TextLink>
           </div>
         </div>
       </section>
@@ -193,8 +193,8 @@ export default function HomePage() {
               {[
                 "Channels: parcel QR, Instagram bio, Google Maps, WhatsApp blast",
                 "Chat: Cloud API catalog + cart + address",
-                "Pay: UPI / WhatsApp Pay → instant settlement",
-                "Ops: KDS / printer → rider dispatch → status bubbles",
+                "Pay: UPI / WhatsApp Pay, instant settlement",
+                "Ops: KDS / printer, rider dispatch, status bubbles",
                 "CRM: phone, address, orders stay on your rail",
               ].map((t, i) => (
                 <li key={t} className="flex gap-3">
@@ -226,37 +226,52 @@ export default function HomePage() {
           <div className="reveal-target max-w-2xl mb-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Inside the chat</p>
             <h2 className="font-headline text-3xl font-bold text-primary">
-              HI → cuisines → redeem rewards → pay.
+              From HI in chat to paid order
             </h2>
-            <p className="mt-3 text-text-muted">
+            <StepChips steps={["Say HI", "Pick cuisine", "Redeem rewards", "Pay in chat"]} />
+            <p className="mt-4 text-text-muted">
               Guided WhatsApp agent, in-chat webview, digital loyalty card, and a CRM that counts orders,
               claims, re-orders, and dine-in redemptions.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
-            <div className="reveal-target">
-              <StoryImage
-                src="/images/whatsapp-hi-agent.jpg"
-                alt="WhatsApp HI agent with option buttons"
-                caption="Agent: HI → Order / Rewards / Dine-in"
-                ratio="portrait"
-              />
-            </div>
-            <div className="reveal-target">
-              <StoryImage
-                src="/images/whatsapp-cuisines.jpg"
-                alt="WhatsApp cuisine category cards"
-                caption="Cuisines inside WhatsApp"
-                ratio="portrait"
-              />
-            </div>
-            <div className="reveal-target">
-              <StoryImage
-                src="/images/crm-dashboard.jpg"
-                alt="Guest CRM dashboard metrics"
-                caption="CRM: orders · claims · re-orders"
-              />
-            </div>
+          <div className="grid md:grid-cols-3 gap-5 items-stretch">
+            {[
+              {
+                src: "/images/whatsapp-hi-agent.jpg",
+                alt: "WhatsApp HI agent with option buttons",
+                step: "01",
+                title: "Guest says HI",
+                cap: "Order, dine-in, rewards, or a table",
+              },
+              {
+                src: "/images/whatsapp-cuisines.jpg",
+                alt: "WhatsApp cuisine category cards",
+                step: "02",
+                title: "Cuisines in chat",
+                cap: "North Indian, Chinese, biryani, and more",
+              },
+              {
+                src: "/images/crm-dashboard.jpg",
+                alt: "Guest CRM dashboard metrics",
+                step: "03",
+                title: "Owner sees the CRM",
+                cap: "Orders, claims, and re-orders",
+              },
+            ].map((c) => (
+              <article
+                key={c.title}
+                className="reveal-target flex h-full flex-col rounded-2xl border border-border-warm bg-white overflow-hidden shadow-[0_8px_28px_-8px_rgba(29,42,74,0.10)]"
+              >
+                <div className="relative h-72 sm:h-80 w-full bg-[#efe8dc] shrink-0">
+                  <Image src={c.src} alt={c.alt} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
+                <div className="p-4 flex-1">
+                  <p className="text-[11px] font-bold text-accent-gold">{c.step}</p>
+                  <h3 className="font-headline font-bold text-primary mt-0.5">{c.title}</h3>
+                  <p className="text-sm text-text-muted mt-1">{c.cap}</p>
+                </div>
+              </article>
+            ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3 reveal-target">
             <Link href="/agent" className="rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
@@ -281,7 +296,7 @@ export default function HomePage() {
         <div className="reveal-target">
           <h2 className="font-headline text-3xl font-bold text-primary">Enter the market with a rail you can explain in 30 seconds.</h2>
           <p className="mt-4 text-text-muted leading-relaxed">
-            Packaging QR → WhatsApp agent → rewards → CRM. 0% commission. Founding cohort: first 10 ambitious brands.
+            Packaging QR, WhatsApp agent, rewards, and CRM. 0% commission. Founding cohort: first 10 ambitious brands.
           </p>
           <Link
             href="/contact"

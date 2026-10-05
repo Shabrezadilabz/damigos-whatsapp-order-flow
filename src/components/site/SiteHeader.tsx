@@ -33,7 +33,7 @@ export function SiteHeader() {
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="bg-primary-container text-on-primary py-1.5 px-4 text-center">
         <Link href="/contact" className="text-[11px] sm:text-xs font-headline font-semibold text-secondary-container hover:text-white">
-          WhatsApp order rail · 0% commission · Founding cohort 2026 →
+          WhatsApp order rail · 0% commission · Founding cohort 2026
         </Link>
       </div>
       <div
