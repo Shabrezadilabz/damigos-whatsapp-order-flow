@@ -83,3 +83,14 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 639px) {
   .cta-full { width: 100%; justify-content: center; }
 }
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-left {
+  animation: marquee-left 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left { animation: none; }
+}

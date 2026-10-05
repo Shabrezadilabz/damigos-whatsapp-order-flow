@@ -2,16 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips } from "@/components/site/StepChips";
+import { MovingPartners } from "@/components/site/MovingPartners";
 
 export const metadata: Metadata = { title: "Delivery Partners" };
-
-const PARTNERS = [
-  { name: "Shadowfax", role: "Hyperlocal & city last-mile" },
-  { name: "Dunzo", role: "Quick commerce–style local drops" },
-  { name: "Porter", role: "Larger orders & multi-drop runs" },
-  { name: "Your riders", role: "In-house fleet on the same status rail" },
-  { name: "Regional partners", role: "City-specific couriers where you already pay" },
-];
 
 const FLOW = [
   { n: "01", t: "Order paid in WhatsApp", d: "UPI / rewards settle. Ticket hits the kitchen." },
@@ -47,16 +40,12 @@ export default function DeliveryPage() {
         </div>
       </section>
 
-      <section className="page-wrap py-10 sm:py-16">
-        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary mb-6">Who can carry the order</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {PARTNERS.map((p) => (
-            <div key={p.name} className="rounded-2xl border border-border-warm bg-white p-5">
-              <p className="font-headline font-bold text-primary">{p.name}</p>
-              <p className="text-sm text-text-muted mt-1">{p.role}</p>
-            </div>
-          ))}
-        </div>
+      <section className="page-wrap py-10 sm:py-16 overflow-hidden">
+        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary mb-3">Who can carry the order</h2>
+        <p className="text-text-muted mb-8 max-w-2xl">
+          Scroll the page — the last-mile film moves with you. Then pick who carries the bag.
+        </p>
+        <MovingPartners />
         <p className="mt-6 text-sm text-text-muted max-w-2xl">
           Integration path is API / partner dispatch where available — you choose rules (zone, ticket size, peak hours).
           Aggregator marketplaces are optional; this rail does not need their 28–34% commission to move food.
