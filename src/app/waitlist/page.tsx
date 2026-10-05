@@ -1,43 +1,37 @@
 import type { Metadata } from "next";
-import { StoryImage } from "@/components/site/StoryImage";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 
 export const metadata: Metadata = { title: "Join the waitlist" };
 
 export default function WaitlistPage() {
   return (
-    <main className="page-wrap py-10 sm:py-14 md:py-16">
-      <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
-        <div className="min-w-0">
-          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary">Waitlist · founding cohort</p>
-          <h1 className="font-headline text-[1.85rem] sm:text-4xl font-extrabold text-primary mt-3">
-            Join the waitlist. Hum data + rewards automate karenge.
+    <main className="bg-canvas-cream border-b border-border-warm">
+      <div className="page-wrap py-10 sm:py-14 md:py-16 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-10 items-start">
+        <div className="min-w-0 lg:sticky lg:top-28">
+          <p className="font-headline text-xl text-accent-gold">Founding waitlist</p>
+          <h1 className="font-headline text-[2.1rem] sm:text-4xl text-primary mt-2 leading-tight">
+            Order details do.
+            <span className="text-secondary"> Rewards auto.</span>
           </h1>
           <p className="mt-4 text-text-muted leading-relaxed">
-            Cloud kitchen ho ya restaurant takeaway — batao kitne orders nikalte hain, data kiska hai,
-            ticket kitna hai. Waitlist pe lagao. Hum WhatsApp rail, guest data, personalized rewards
-            aur campaigns on karte hain. Online appearance aur orders — 3x ki taraf.
+            Cloud kitchen ho ya takeaway — kitne orders, ticket kitna, data kiska. Form bharo.
+            Hum guest data, personalized rewards aur campaigns on karte hain. Online + orders 3x.
           </p>
-          <ul className="mt-6 space-y-2 text-sm text-text-muted">
+          <ul className="mt-6 space-y-3">
             {[
-              "Customer phone + order history tumhara",
-              "Pehle wale orders se personal rewards",
-              "Festival / payday / geo campaigns auto",
+              "Phone + order history tumhara",
+              "Pehle orders se personal rewards",
+              "Festival / payday / geo auto",
               "0% commission on the ticket",
             ].map((t) => (
-              <li key={t} className="flex gap-2">
-                <span className="material-symbols-outlined text-secondary text-base">check_circle</span>
+              <li key={t} className="flex gap-3 items-start text-sm text-on-surface">
+                <span className="mt-0.5 h-5 w-5 rounded-full bg-secondary text-white flex items-center justify-center text-[11px] font-bold shrink-0">
+                  ✓
+                </span>
                 {t}
               </li>
             ))}
           </ul>
-          <div className="mt-8">
-            <StoryImage
-              src="/images/owner-phone-success.jpg"
-              alt="Restaurant owner with WhatsApp order confirmations"
-              caption="Pehle rishta. Phir reach. Phir 3x."
-            />
-          </div>
         </div>
         <WaitlistForm />
       </div>
