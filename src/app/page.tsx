@@ -204,10 +204,10 @@ export default function HomePage() {
               ))}
             </ol>
             <Link
-              href="/architecture"
+              href="/packaging"
               className="inline-flex mt-8 rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold"
             >
-              Full architecture
+              Packaging QR alignment
             </Link>
           </div>
           <div className="reveal-target min-w-0">

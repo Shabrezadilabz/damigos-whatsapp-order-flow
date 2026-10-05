@@ -13,9 +13,7 @@ const LINKS = [
   { href: "/crm", label: "Loyalty", match: "/crm" },
   { href: "/campaigns", label: "Campaigns", match: "/campaigns" },
   { href: "/delivery", label: "Delivery", match: "/delivery" },
-  { href: "/architecture", label: "Architecture", match: "/architecture" },
   { href: "/economics", label: "Economics", match: "/economics" },
-  { href: "/contact", label: "Validate", match: "/contact" },
 ];
 
 export function SiteHeader() {
@@ -49,8 +47,7 @@ export function SiteHeader() {
         )}
       >
         <div className="page-wrap h-14 sm:h-16 flex items-center justify-between gap-2 min-w-0">
-          <DamigosLogo size="sm" className="sm:hidden shrink-0" />
-          <DamigosLogo size="md" className="hidden sm:inline-flex shrink-0" />
+          <DamigosLogo size="md" className="shrink-0" />
           <nav className="hidden 2xl:flex items-center gap-0.5 min-w-0">
             {LINKS.map((l) => (
               <Link
@@ -70,9 +67,10 @@ export function SiteHeader() {
           <div className="flex items-center gap-2 shrink-0">
             <Link
               href="/contact"
-              className="hidden md:inline-flex rounded-full bg-secondary text-white px-3 lg:px-4 py-2 text-sm font-headline font-semibold hover:bg-[#8E3E2A] transition-colors"
+              className="inline-flex rounded-full bg-secondary text-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-headline font-semibold hover:bg-[#8E3E2A] transition-colors"
             >
-              Book a validation
+              <span className="sm:hidden">Book</span>
+              <span className="hidden sm:inline">Book a validation</span>
             </Link>
             <button
               type="button"
@@ -91,9 +89,6 @@ export function SiteHeader() {
                 {l.label}
               </Link>
             ))}
-            <Link href="/contact" className="block py-3 text-center rounded-full bg-secondary text-white font-semibold md:hidden">
-              Book a validation
-            </Link>
           </div>
         ) : null}
       </div>
