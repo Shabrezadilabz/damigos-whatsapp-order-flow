@@ -220,6 +220,55 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Agent + CRM teaser */}
+      <section className="bg-canvas-cream border-y border-border-warm py-14 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="reveal-target max-w-2xl mb-10">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Inside the chat</p>
+            <h2 className="font-headline text-3xl font-bold text-primary">
+              HI → cuisines → redeem rewards → pay.
+            </h2>
+            <p className="mt-3 text-text-muted">
+              Guided WhatsApp agent, in-chat webview, digital loyalty card, and a CRM that counts orders,
+              claims, re-orders, and dine-in redemptions.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <div className="reveal-target">
+              <StoryImage
+                src="/images/whatsapp-hi-agent.jpg"
+                alt="WhatsApp HI agent with option buttons"
+                caption="Agent: HI → Order / Rewards / Dine-in"
+                ratio="portrait"
+              />
+            </div>
+            <div className="reveal-target">
+              <StoryImage
+                src="/images/whatsapp-cuisines.jpg"
+                alt="WhatsApp cuisine category cards"
+                caption="Cuisines inside WhatsApp"
+                ratio="portrait"
+              />
+            </div>
+            <div className="reveal-target">
+              <StoryImage
+                src="/images/crm-dashboard.jpg"
+                alt="Guest CRM dashboard metrics"
+                caption="CRM: orders · claims · re-orders"
+              />
+            </div>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3 reveal-target">
+            <Link href="/agent" className="rounded-full bg-secondary text-white px-6 py-3 text-sm font-bold">
+              Full WhatsApp agent flow
+            </Link>
+            <Link href="/crm" className="rounded-full border border-border-warm bg-white text-primary px-6 py-3 text-sm font-semibold">
+              Guest CRM & loyalty calculator
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Owner CTA */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
         <div className="reveal-target">
@@ -232,8 +281,7 @@ export default function HomePage() {
         <div className="reveal-target">
           <h2 className="font-headline text-3xl font-bold text-primary">Enter the market with a rail you can explain in 30 seconds.</h2>
           <p className="mt-4 text-text-muted leading-relaxed">
-            This draft is the validation story for restaurants: packaging QR → WhatsApp order → 0% commission.
-            Founding cohort: first 10 ambitious brands.
+            Packaging QR → WhatsApp agent → rewards → CRM. 0% commission. Founding cohort: first 10 ambitious brands.
           </p>
           <Link
             href="/contact"

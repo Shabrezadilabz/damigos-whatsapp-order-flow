@@ -8,6 +8,8 @@ import { cn } from "@/lib/cn";
 
 const LINKS = [
   { href: "/", label: "The flow", match: "/" },
+  { href: "/agent", label: "WA agent", match: "/agent" },
+  { href: "/crm", label: "Guest CRM", match: "/crm" },
   { href: "/architecture", label: "Architecture", match: "/architecture" },
   { href: "/economics", label: "Economics", match: "/economics" },
   { href: "/contact", label: "Validate", match: "/contact" },
@@ -45,13 +47,13 @@ export function SiteHeader() {
         <div className="max-w-6xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between gap-3">
           <DamigosLogo size="sm" className="sm:hidden" />
           <DamigosLogo size="md" className="hidden sm:inline-flex" />
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
             {LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 className={cn(
-                  "px-3 py-1.5 rounded-full text-sm font-semibold",
+                  "px-2.5 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap",
                   pathname === l.match
                     ? "bg-badge-peach-bg text-badge-peach-text"
                     : "text-on-surface-variant hover:text-on-surface",
@@ -70,7 +72,7 @@ export function SiteHeader() {
             </Link>
             <button
               type="button"
-              className="md:hidden h-10 w-10 rounded-full border border-border-warm bg-white"
+              className="lg:hidden h-10 w-10 rounded-full border border-border-warm bg-white"
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >
@@ -79,7 +81,7 @@ export function SiteHeader() {
           </div>
         </div>
         {open ? (
-          <div className="md:hidden border-t border-border-warm px-4 py-3 space-y-1 bg-surface-ivory">
+          <div className="lg:hidden border-t border-border-warm px-4 py-3 space-y-1 bg-surface-ivory">
             {LINKS.map((l) => (
               <Link key={l.href} href={l.href} className="block py-2.5 font-semibold text-primary">
                 {l.label}

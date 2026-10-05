@@ -21,6 +21,8 @@ npm run dev
 | Route | Story |
 |-------|--------|
 | `/` | Visual flow: packaging QR, scan, chat, kitchen, handoff |
+| `/agent` | HI → options → cuisines → webview redeem + pay |
+| `/crm` | Guest CRM dashboard, digital loyalty card, dine-in redeem, loyalty calculator |
 | `/architecture` | Capture → Chat OS → Pay → Kitchen → Last mile |
 | `/economics` | Aggregator 30% vs direct 0% |
 | `/contact` | Founding cohort intake |

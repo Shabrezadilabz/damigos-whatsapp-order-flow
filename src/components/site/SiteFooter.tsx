@@ -15,6 +15,8 @@ export function SiteFooter() {
           <p className="text-accent-gold font-headline text-sm font-bold mb-3">This explainer</p>
           <ul className="space-y-2 text-sm text-white/75">
             <li><Link href="/">The order flow</Link></li>
+            <li><Link href="/agent">WhatsApp agent</Link></li>
+            <li><Link href="/crm">Guest CRM & loyalty</Link></li>
             <li><Link href="/architecture">Architecture</Link></li>
             <li><Link href="/economics">Economics</Link></li>
             <li><Link href="/contact">Founding cohort</Link></li>
