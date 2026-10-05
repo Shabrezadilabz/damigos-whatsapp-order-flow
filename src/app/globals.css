@@ -22,7 +22,7 @@
   --color-error: #ba1a1a;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-logo: var(--font-allura), Arial, cursive;
+  --font-logo: var(--font-edu-qld), "Edu QLD Hand", Arial, cursive;
 }
 
 * { box-sizing: border-box; }
@@ -64,10 +64,10 @@ h1, h2, h3, h4 {
   font-family: var(--font-jakarta), system-ui, sans-serif;
 }
 .font-logo {
-  font-family: var(--font-allura), Arial, cursive;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.15;
+  font-family: var(--font-edu-qld), "Edu QLD Hand", Arial, cursive;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; height: auto; }
@@ -97,11 +97,11 @@ img { max-width: 100%; height: auto; }
 }
 
 .btn-waitlist {
-  font-family: var(--font-allura), Arial, cursive;
-  font-weight: 400;
+  font-family: var(--font-edu-qld), "Edu QLD Hand", Arial, cursive;
+  font-weight: 700;
   background: linear-gradient(135deg, #9a452f 0%, #c45a3a 48%, #d99b38 100%);
   box-shadow: 0 8px 22px -6px rgba(154, 69, 47, 0.55);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 .btn-waitlist:hover {
   filter: brightness(1.06);

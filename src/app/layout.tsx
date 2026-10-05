@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans, Allura } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Edu_QLD_Hand } from "next/font/google";
 import "./globals.css";
 import { PageShell } from "@/components/site/PageShell";
 
@@ -10,11 +10,12 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   display: "swap",
 });
-const allura = Allura({
+const eduHand = Edu_QLD_Hand({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-allura",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-edu-qld",
   display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${allura.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${eduHand.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
