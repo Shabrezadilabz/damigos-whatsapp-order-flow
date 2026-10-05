@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans, Great_Vibes } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Allura } from "next/font/google";
 import "./globals.css";
 import { PageShell } from "@/components/site/PageShell";
 
@@ -10,10 +10,10 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   display: "swap",
 });
-const greatVibes = Great_Vibes({
+const allura = Allura({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-great-vibes",
+  variable: "--font-allura",
   display: "swap",
 });
 
@@ -35,7 +35,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${greatVibes.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${allura.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"

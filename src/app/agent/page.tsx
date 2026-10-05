@@ -44,8 +44,8 @@ export default function AgentPage() {
       <section className="bg-hero-navy-surface text-surface-ivory">
         <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
-            <p className="font-headline text-xl text-accent-gold mb-3">Hero agent</p>
-            <h1 className="font-headline text-[2.15rem] sm:text-5xl tracking-tight leading-[1.15]">
+            <p className="font-logo text-3xl text-accent-gold mb-3">Hero agent</p>
+            <h1 className="font-logo text-[2.6rem] sm:text-6xl text-white">
               D&apos;aMigo&apos;s on WhatsApp.
             </h1>
             <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl">

@@ -73,7 +73,7 @@ export function WaitlistForm() {
       encType="text/plain"
     >
       <div className="bg-hero-navy-surface px-5 sm:px-7 py-5">
-        <p className="font-headline text-[1.65rem] sm:text-3xl text-accent-gold leading-none">Join waitlist</p>
+        <p className="font-logo text-[2rem] sm:text-4xl text-accent-gold leading-none">Join waitlist</p>
         <p className="mt-2 text-sm text-white/70">Cloud kitchen · takeaway · apna guest data</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {["0% commission", "Guest data yours", "3x orders"].map((t) => (
@@ -88,7 +88,7 @@ export function WaitlistForm() {
         <input type="hidden" name="intent" value="waitlist" />
 
         <section>
-          <p className="font-headline text-lg text-primary mb-4">Aap kaun ho</p>
+          <p className="text-sm font-extrabold text-primary mb-4">Aap kaun ho</p>
           <div className="grid sm:grid-cols-2 gap-4">
             <Field label="Brand / kitchen">
               <input required name="brand" className={field} placeholder="The Gourmet Table" />
@@ -106,7 +106,7 @@ export function WaitlistForm() {
         </section>
 
         <section>
-          <p className="font-headline text-lg text-primary">Kya chala rahe ho</p>
+          <p className="text-sm font-extrabold text-primary">Kya chala rahe ho</p>
           <Chips
             name="kitchen_type"
             value={kitchen}
@@ -116,7 +116,7 @@ export function WaitlistForm() {
         </section>
 
         <section>
-          <p className="font-headline text-lg text-primary">Orders</p>
+          <p className="text-sm font-extrabold text-primary">Orders</p>
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mt-3">Monthly volume</p>
           <Chips name="monthly_orders" value={orders} onChange={setOrders} options={["Under 500", "500 – 2,000", "2,000 – 8,000", "8,000+"]} />
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mt-4">Average ticket</p>
@@ -124,7 +124,7 @@ export function WaitlistForm() {
         </section>
 
         <section>
-          <p className="font-headline text-lg text-primary">Aaj orders kahan se</p>
+          <p className="text-sm font-extrabold text-primary">Aaj orders kahan se</p>
           <Chips
             name="channels"
             value={channels}
