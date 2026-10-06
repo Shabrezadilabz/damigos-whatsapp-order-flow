@@ -66,7 +66,7 @@ export function LoyaltyCalculator() {
       </h3>
       <div className="space-y-5">
         <Field label="Monthly orders (all channels)" value={monthlyOrders} set={setMonthlyOrders} min={100} max={5000} step={50} />
-        <Field label="Average ticket" value={avgTicket} set={setAvgTicket} min={150} max={1200} step={10} suffix=" ₹" />
+        <Field label="Average order" value={avgTicket} set={setAvgTicket} min={150} max={1200} step={10} suffix=" ₹" />
         <Field label="Points per ₹100 spent" value={pointsPerHundred} set={setPointsPerHundred} min={5} max={25} />
         <Field label="Guests who redeem" value={redeemRate} set={setRedeemRate} min={5} max={45} suffix="%" />
         <Field label="Of redemptions in dine-in" value={dineInShare} set={setDineInShare} min={10} max={80} suffix="%" />

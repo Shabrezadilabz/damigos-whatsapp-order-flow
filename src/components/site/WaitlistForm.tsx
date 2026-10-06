@@ -119,7 +119,7 @@ export function WaitlistForm() {
           <p className="text-sm font-extrabold text-primary">Orders</p>
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mt-3">Monthly volume</p>
           <Chips name="monthly_orders" value={orders} onChange={setOrders} options={["Under 500", "500 – 2,000", "2,000 – 8,000", "8,000+"]} />
-          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mt-4">Average ticket</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mt-4">Average order</p>
           <Chips name="avg_ticket" value={ticket} onChange={setTicket} options={["Under ₹300", "₹300 – ₹600", "₹600 – ₹1,000", "₹1,000+"]} />
         </section>
 
