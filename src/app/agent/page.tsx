@@ -10,6 +10,7 @@ export const metadata: Metadata = { title: "Hero Agent" };
 
 const STEPS: {
   n: string;
+  id: string;
   title: string;
   text: string;
   screen: AgentScreen;
@@ -17,6 +18,7 @@ const STEPS: {
 }[] = [
   {
     n: "01",
+    id: "say-hi",
     title: "Guest sends HI",
     text: "WhatsApp opens as D'aMigo's. The Hero agent greets them with clear paths — no hunting for a website.",
     screen: "hi",
@@ -24,6 +26,7 @@ const STEPS: {
   },
   {
     n: "02",
+    id: "offer-link",
     title: "Offer link opens the agent",
     text: "Restaurant posts a weekend / payday offer. Guest taps Order on WhatsApp — the link lands in the live Hero agent, on that restaurant's number.",
     screen: "offer",
@@ -31,6 +34,7 @@ const STEPS: {
   },
   {
     n: "03",
+    id: "in-chat-site",
     title: "Restaurant website inside chat",
     text: "We build each restaurant their own live site — menu, offers, cart — and open it as a webview inside the agent. The storefront is the conversation.",
     screen: "site",
@@ -38,6 +42,7 @@ const STEPS: {
   },
   {
     n: "04",
+    id: "all-offers",
     title: "See all offers — guest browses",
     text: "They can also open All Offers themselves: festival, payday, weekend, geo. Tap any card, cart updates, pay with rewards + UPI.",
     screen: "offers",
@@ -60,13 +65,17 @@ export default function AgentPage() {
               Guests can also browse every offer themselves — then pay without leaving WhatsApp.
             </p>
             <div className="mt-5">
-              <StepChips steps={["Offer link", "In-chat site", "All offers", "Pay"]} tone="dark" />
+              <StepChips
+                steps={["Offer link", "In-chat site", "All offers", "Pay"]}
+                hrefs={["#offer-link", "#in-chat-site", "#all-offers", "#pay"]}
+                tone="dark"
+              />
             </div>
             <div className="mt-8">
               <WaitlistButton />
             </div>
           </div>
-          <PhoneFrame caption="Hero agent — D'aMigo's. Guest says HI." className="[&_figcaption]:text-white/70">
+          <PhoneFrame caption="Hero agent — D'aMigo's. Guest says HI." className="[&_figcaption]:text-white/70 animate-float">
             <WhatsAppMock screen="hi" />
           </PhoneFrame>
         </div>
@@ -97,7 +106,7 @@ export default function AgentPage() {
 
       <section className="page-wrap py-10 sm:py-16 md:py-20 space-y-14 md:space-y-20">
         {STEPS.map((s, i) => (
-          <div key={s.n} className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div key={s.n} id={s.id} className="scroll-mt-28 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
             <div className={i % 2 === 1 ? "md:order-2 min-w-0" : "min-w-0"}>
               <PhoneFrame caption={s.title}>
                 <WhatsAppMock screen={s.screen} />
@@ -122,7 +131,7 @@ export default function AgentPage() {
         ))}
       </section>
 
-      <section className="bg-canvas-cream border-y border-border-warm py-14">
+      <section id="pay" className="scroll-mt-28 bg-canvas-cream border-y border-border-warm py-14">
         <div className="page-wrap grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
             <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">One guest. Delivery redeem + dine-in claim.</h2>
@@ -135,9 +144,11 @@ export default function AgentPage() {
             </Link>
           </div>
           <StoryImage
-            src="/images/dinein-scan-redeem.jpg"
-            alt="Dine-in loyalty redeem with digital card"
+            src="/images/host-guest-tablet.jpg"
+            alt="Host stand tablet showing guest profile captured from QR"
             caption="Same wallet: earn on delivery, claim at the table."
+            ratio="portrait"
+            object="top"
           />
         </div>
       </section>

@@ -35,8 +35,8 @@ export default function EconomicsPage() {
       </div>
 
       <div className="mt-10 grid md:grid-cols-2 gap-6">
-        <StoryImage src="/images/parcel-qr-closeup.jpg" alt="QR on parcel" caption="Acquisition cost of the next order: a sticker." />
-        <StoryImage src="/images/owner-phone-success.jpg" alt="Owner with phone" caption="Margin stays in the kitchen." />
+        <StoryImage src="/images/partner-inhouse-fleet.jpg" alt="In-house delivery fleet" caption="Acquisition of the next order stays on your rail." />
+        <StoryImage src="/images/partner-regional-van.jpg" alt="Regional delivery van" caption="Margin stays in the kitchen." />
       </div>
 
       <WaitlistButton className="mt-10" />

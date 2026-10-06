@@ -29,7 +29,7 @@ export function StoryImage({
 
   return (
     <figure className={cn("group", className)}>
-      <div className={cn("relative overflow-hidden rounded-2xl border border-border-warm bg-surface-card-tint shadow-[0_8px_28px_-8px_rgba(29,42,74,0.12)]", sizes)}>
+      <div className={cn("relative overflow-hidden rounded-3xl border border-border-warm bg-surface-card-tint shadow-[0_8px_28px_-8px_rgba(29,42,74,0.12)]", sizes)}>
         <Image
           src={src}
           alt={alt}

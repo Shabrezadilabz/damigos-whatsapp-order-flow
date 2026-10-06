@@ -17,7 +17,7 @@ const METRICS = [
 export default function CrmPage() {
   return (
     <main>
-      <section className="bg-canvas-cream border-b border-border-warm">
+      <section className="bg-canvas-cream bg-grid-pattern border-b border-border-warm">
         <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Guest CRM</p>
@@ -78,9 +78,11 @@ export default function CrmPage() {
             </ul>
           </div>
           <StoryImage
-            src="/images/loyalty-digital-card.jpg"
-            alt="Digital loyalty card on phone with points and dine-in QR"
-            caption="Per-guest card: points, rewards progress, redeem QR."
+            src="/images/ref-loyalty-cafe.jpg"
+            alt="Loyalty program on phone: cashback wallet, WhatsApp reminders, repeat orders"
+            caption="Cashback wallet, auto WhatsApp reminders, redeem in chat or at the table."
+            ratio="portrait"
+            object="top"
           />
         </div>
       </section>

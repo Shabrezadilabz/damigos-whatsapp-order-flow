@@ -12,7 +12,7 @@ export function WaitlistButton({
     <Link
       href="/waitlist"
       className={cn(
-        "btn-waitlist inline-flex items-center justify-center rounded-full text-white shrink-0",
+        "btn-waitlist inline-flex items-center justify-center rounded-full text-white shrink-0 transition-transform hover:-translate-y-0.5",
         size === "sm" ? "px-4 py-2 text-xs sm:text-sm" : "cta-full px-7 py-3.5 text-sm",
         className,
       )}

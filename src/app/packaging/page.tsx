@@ -7,18 +7,21 @@ export const metadata: Metadata = { title: "Packaging QR & Alignment" };
 
 const SURFACES = [
   {
+    id: "bag",
     title: "Kraft bag",
     text: "Large QR on the front panel, eye-level when the guest carries it home. Print zone clear of folds and handles.",
     img: "/images/parcel-qr-closeup.jpg",
     cap: "Bag front — scan on the walk in.",
   },
   {
+    id: "box-lid",
     title: "Box lid",
     text: "Sticker sits dead-center in a print-safe square so every lid from the kitchen looks the same. No crooked placement.",
     img: "/images/box-lid-qr.jpg",
     cap: "Lid center — scan while they eat.",
   },
   {
+    id: "tissue",
     title: "Tissue / insert",
     text: "Last surface they touch. Small QR in the corner with quiet copy — reorder without opening an app store.",
     img: "/images/tissue-qr-insert.jpg",
@@ -36,7 +39,7 @@ const ALIGN = [
 export default function PackagingPage() {
   return (
     <main>
-      <section className="bg-canvas-cream border-b border-border-warm">
+      <section className="bg-canvas-cream bg-grid-pattern border-b border-border-warm">
         <div className="page-wrap py-10 sm:py-14 md:py-16 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Packaging products</p>
@@ -49,12 +52,17 @@ export default function PackagingPage() {
               Every surface that leaves your kitchen is a WhatsApp doorway. We show exactly where the code sits —
               so kitchen staff place it the same way on every order, with no manual design work.
             </p>
-            <StepChips steps={["Bag", "Box lid", "Tissue", "Scan → chat"]} />
+            <StepChips
+              steps={["Bag", "Box lid", "Tissue", "Scan → chat"]}
+              hrefs={["#bag", "#box-lid", "#tissue", "#scan-chat"]}
+            />
           </div>
           <StoryImage
-            src="/images/qr-alignment-packaging.jpg"
-            alt="QR alignment on kraft bag, meal box lid, and tissue"
-            caption="One placement system across bag, lid, and tissue."
+            src="/images/ref-smart-qr.jpg"
+            alt="Smart QR menu on table: no app, dine-in ordering, WhatsApp capture"
+            caption="Table QR opens the menu. Guest data lands in your CRM."
+            ratio="portrait"
+            object="top"
             priority
           />
         </div>
@@ -67,7 +75,7 @@ export default function PackagingPage() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {SURFACES.map((s) => (
-            <div key={s.title} className="min-w-0">
+            <div key={s.title} id={s.id} className="min-w-0 scroll-mt-28">
               <StoryImage src={s.img} alt={s.title} caption={s.cap} ratio="square" />
               <h3 className="font-headline font-bold text-primary mt-4">{s.title}</h3>
               <p className="text-sm text-text-muted mt-2 leading-relaxed">{s.text}</p>
@@ -76,7 +84,7 @@ export default function PackagingPage() {
         </div>
       </section>
 
-      <section className="bg-hero-navy-surface text-surface-ivory py-10 sm:py-16">
+      <section id="scan-chat" className="scroll-mt-28 bg-hero-navy-surface text-surface-ivory py-10 sm:py-16">
         <div className="page-wrap grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent-gold mb-3">How alignment works</p>

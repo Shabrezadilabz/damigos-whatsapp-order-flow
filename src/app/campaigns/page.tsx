@@ -34,18 +34,24 @@ export default function CampaignsPage() {
               Loyalty points, rewards, and campaigns run on one rail. AI generates offer posters.
               Geo sends them to people near the restaurant. No Canva. No intern. No manual blast list.
             </p>
-            <StepChips steps={["Trigger", "AI poster", "Geo / CRM", "Order in chat"]} tone="dark" />
+            <StepChips
+              steps={["Trigger", "AI poster", "Geo / CRM", "Order in chat"]}
+              hrefs={["#campaign-trigger", "#ai-poster", "#geo-crm", "#order-in-chat"]}
+              tone="dark"
+            />
           </div>
           <StoryImage
-            src="/images/ai-campaign-posters.jpg"
-            alt="AI-generated festival offer poster on phone and campaign dashboard"
-            caption="Festival / weekend / payday posters — generated from your brand."
+            src="/images/ref-crm-whatsapp.jpg"
+            alt="WhatsApp campaign, guest segments, and Mother's Day offer in chat"
+            caption="Targeted WhatsApp campaigns from the same CRM guest list."
+            ratio="portrait"
+            object="top"
             priority
           />
         </div>
       </section>
 
-      <section className="page-wrap py-10 sm:py-16 md:py-20">
+      <section id="campaign-trigger" className="scroll-mt-28 page-wrap py-10 sm:py-16 md:py-20">
         <div className="max-w-2xl mb-8">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Campaign types</p>
           <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">What runs without a marketing team.</h2>
@@ -60,7 +66,7 @@ export default function CampaignsPage() {
         </div>
       </section>
 
-      <section className="bg-canvas-cream border-y border-border-warm py-10 sm:py-16">
+      <section id="ai-poster" className="scroll-mt-28 bg-canvas-cream bg-grid-pattern border-y border-border-warm py-10 sm:py-16">
         <div className="page-wrap grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">AI poster generation</p>
@@ -94,7 +100,7 @@ export default function CampaignsPage() {
         </div>
       </section>
 
-      <section className="page-wrap py-10 sm:py-16 md:py-20 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+      <section id="geo-crm" className="scroll-mt-28 page-wrap py-10 sm:py-16 md:py-20 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
         <StoryImage
           src="/images/geo-local-offers.jpg"
           alt="Geo location offers to nearby people around the restaurant"
@@ -117,7 +123,7 @@ export default function CampaignsPage() {
         </div>
       </section>
 
-      <section className="bg-surface-ivory border-y border-border-warm py-10 sm:py-16">
+      <section id="order-in-chat" className="scroll-mt-28 bg-surface-ivory border-y border-border-warm py-10 sm:py-16">
         <div className="page-wrap">
           <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary mb-6">The automated loop</h2>
           <ol className="grid sm:grid-cols-2 gap-4">

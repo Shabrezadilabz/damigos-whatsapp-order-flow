@@ -88,7 +88,7 @@ export default function HomePage() {
       </section>
 
       {/* Hindi-English punch questions */}
-      <section className="bg-canvas-cream border-b border-border-warm">
+      <section className="bg-canvas-cream bg-grid-pattern border-b border-border-warm">
         <div className="page-wrap py-10 sm:py-14 grid sm:grid-cols-2 gap-4">
           {[
             {
@@ -148,8 +148,8 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="reveal-target order-2 md:order-1 min-w-0">
             <StoryImage
-              src="/images/economics-receipts.jpg"
-              alt="Aggregator commission receipt versus direct WhatsApp 0% commission"
+              src="/images/offer-link-to-agent.jpg"
+              alt="Restaurant offer poster with Order on WhatsApp"
               caption="Same meal. Different owner of the guest."
             />
           </div>
@@ -224,7 +224,7 @@ export default function HomePage() {
             className={cnGrid(i)}
           >
             <div className={`reveal-target min-w-0 ${i % 2 === 1 ? "md:order-2" : ""}`}>
-              <StoryImage src={s.img} alt={s.title} caption={s.cap} ratio={s.n === "02" ? "portrait" : "landscape"} />
+              <StoryImage src={s.img} alt={s.title} caption={s.cap} ratio={s.n === "02" ? "portrait" : "landscape"} object={s.n === "02" ? "top" : "center"} />
             </div>
             <div className={`reveal-target flex flex-col justify-center min-w-0 ${i % 2 === 1 ? "md:order-1" : ""}`}>
               <span className="font-headline text-sm font-bold text-accent-gold">{s.n}</span>
@@ -264,8 +264,8 @@ export default function HomePage() {
           </div>
           <div className="reveal-target min-w-0">
             <StoryImage
-              src="/images/kitchen-pack-sticker.jpg"
-              alt="Kitchen packing with WhatsApp order ticket"
+              src="/images/hero-whatsapp-order.jpg"
+              alt="Takeout bag and box with QR for WhatsApp reorder"
               caption="Ops you already run — minus the aggregator."
             />
           </div>
@@ -273,14 +273,17 @@ export default function HomePage() {
       </section>
 
       {/* Agent + CRM teaser */}
-      <section className="bg-canvas-cream border-y border-border-warm py-14 sm:py-20">
+      <section className="bg-canvas-cream bg-grid-pattern border-y border-border-warm py-14 sm:py-20">
         <div className="page-wrap">
           <div className="reveal-target max-w-2xl mb-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Inside the chat</p>
             <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
               From HI in chat to paid order
             </h2>
-            <StepChips steps={["Say HI", "In-chat site", "All offers", "Pay"]} />
+            <StepChips
+              steps={["Say HI", "In-chat site", "All offers", "Pay"]}
+              hrefs={["/agent#say-hi", "/agent#in-chat-site", "/agent#all-offers", "/agent#pay"]}
+            />
             <p className="mt-4 text-text-muted">
               Hero agent as D&apos;aMigo&apos;s. Offer links open each restaurant&apos;s live website inside WhatsApp.
               Guests can also browse every offer themselves — then pay in chat.
@@ -343,15 +346,15 @@ export default function HomePage() {
               },
               {
                 href: "/campaigns",
-                src: "/images/ai-campaign-posters.jpg",
+                src: "/images/wa-broadcast-console.jpg",
                 title: "AI campaigns",
-                cap: "Festival, payday, weekend posters — auto",
+                cap: "Broadcast, open, order — tracked to the rupee",
               },
               {
-                href: "/campaigns",
-                src: "/images/geo-local-offers.jpg",
-                title: "Geo offers",
-                cap: "Nearby phones get the same poster",
+                href: "/crm",
+                src: "/images/loyalty-digital-card.jpg",
+                title: "Loyalty wallet",
+                cap: "Reminders, cashback, guests who come back",
               },
               {
                 href: "/delivery",
@@ -365,7 +368,7 @@ export default function HomePage() {
                 href={c.href}
                 className="reveal-target group flex h-full flex-col rounded-2xl border border-border-warm bg-white overflow-hidden shadow-[0_8px_28px_-8px_rgba(29,42,74,0.10)]"
               >
-                <div className="relative h-48 sm:h-52 w-full bg-[#efe8dc] shrink-0">
+                <div className="relative h-56 sm:h-64 w-full bg-[#efe8dc] shrink-0">
                   <Image src={c.src} alt={c.title} fill className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" sizes="(max-width: 640px) 100vw, 25vw" />
                 </div>
                 <div className="p-4 flex-1">
