@@ -98,13 +98,13 @@ export default function DeliveryPage() {
         <ShotStrip
           shots={[
             { src: "/images/kitchen-pack-sticker.jpg", cap: "Ticket + QR sticker" },
+            { src: "/images/sticker-sheet-designs.jpg", cap: "Sticker sheet variety" },
+            { src: "/images/sticker-seal-bag.jpg", cap: "Seal on the bag" },
             { src: "/images/box-lid-qr.jpg", cap: "Lid alignment" },
             { src: "/images/parcel-qr-closeup.jpg", cap: "Bag front QR" },
-            { src: "/images/qr-alignment-packaging.jpg", cap: "Same spot every box" },
             { src: "/images/tissue-qr-insert.jpg", cap: "Tissue insert" },
+            { src: "/images/sticker-scan-variety.jpg", cap: "Scan any design" },
             { src: "/images/partner-quick-drop.jpg", cap: "Partner pickup" },
-            { src: "/images/partner-inhouse-fleet.jpg", cap: "Your riders ready" },
-            { src: "/images/hero-whatsapp-order.jpg", cap: "Bag and box leave" },
           ]}
         />
       </section>

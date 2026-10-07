@@ -178,12 +178,14 @@ export default function HomePage() {
         <div className="page-wrap">
           <div className="max-w-2xl mb-10 reveal-target">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mb-3">Packaging is the store</p>
-            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">QR on the bag, the box, the tissue.</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-primary">
+              QR on the bag, box, tissue — and sticker designs.
+            </h2>
             <p className="mt-3 text-text-muted">
-              If they can see it, they can reorder. Every surface that leaves your kitchen is a WhatsApp doorway.
+              If they can see it, they can reorder. Seals, sheets, campaign labels — every scan opens WhatsApp.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <div className="reveal-target">
               <StoryImage
                 src="/images/parcel-qr-closeup.jpg"
@@ -205,6 +207,14 @@ export default function HomePage() {
                 src="/images/tissue-qr-insert.jpg"
                 alt="Tissue napkin with reorder QR next to open meal box"
                 caption="Tissue: last thing they touch."
+                ratio="square"
+              />
+            </div>
+            <div className="reveal-target">
+              <StoryImage
+                src="/images/sticker-design-variety.jpg"
+                alt="Variety of QR reorder sticker designs"
+                caption="Stickers: more looks, same scan."
                 ratio="square"
               />
             </div>
@@ -342,7 +352,7 @@ export default function HomePage() {
                 href: "/packaging",
                 src: "/images/qr-alignment-packaging.jpg",
                 title: "Packaging QR",
-                cap: "Bag, lid, tissue — same alignment every order",
+                cap: "Bag, lid, tissue, sticker designs",
               },
               {
                 href: "/campaigns",
