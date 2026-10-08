@@ -4,7 +4,6 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 const PARTNERS_EMAIL = "partners@damigos.in";
-const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${PARTNERS_EMAIL}`;
 
 const field =
   "mt-2 w-full rounded-2xl border border-border-warm bg-white px-4 py-3 text-[15px] text-on-surface outline-none transition-shadow placeholder:text-[#b5aea4] focus:border-secondary focus:shadow-[0_0_0_4px_rgba(154,69,47,0.12)]";
@@ -74,52 +73,62 @@ export function WaitlistForm() {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
+    const brand = String(fd.get("brand") ?? "").trim();
+    const city = String(fd.get("city") ?? "").trim();
+    const whatsapp = String(fd.get("whatsapp") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const notes = String(fd.get("notes") ?? "").trim();
 
-    fd.set("_subject", `Waitlist: ${String(fd.get("brand") ?? "").trim()} · ${String(fd.get("city") ?? "").trim()}`);
-    fd.set("_template", "table");
-    fd.set("_captcha", "false");
-    fd.set("kitchen_type", kitchen);
-    fd.set("monthly_orders", orders);
-    fd.set("avg_order", ticket);
-    fd.set("channels", channels);
-    fd.set("own_customer_data", data);
-    fd.set("order_mix", mix);
-    fd.set("reply_to_hint", String(fd.get("email") ?? "").trim() || String(fd.get("whatsapp") ?? "").trim());
+    const payload = {
+      brand,
+      city,
+      whatsapp,
+      email,
+      kitchen_type: kitchen,
+      monthly_orders: orders,
+      avg_order: ticket,
+      channels,
+      own_customer_data: data,
+      order_mix: mix,
+      notes,
+    };
 
     setStatus("sending");
     setErrorMsg("");
 
     try {
-      const res = await fetch(FORMSUBMIT_URL, {
+      const res = await fetch("/api/waitlist", {
         method: "POST",
-        body: fd,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Submit failed");
+      const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+      if (!res.ok || !json.ok) throw new Error(json.error || "Submit failed");
       setStatus("sent");
       form.reset();
-    } catch {
-      // Fallback: open mail client with full details if FormSubmit is blocked / not activated yet
-      const brand = String(fd.get("brand") ?? "").trim();
-      const city = String(fd.get("city") ?? "").trim();
+    } catch (err) {
       const lines = [
         "D'aMigo's waitlist — new kitchen",
         "",
         `Brand / kitchen: ${brand}`,
         `City: ${city}`,
-        `WhatsApp: ${String(fd.get("whatsapp") ?? "")}`,
-        `Email: ${String(fd.get("email") ?? "") || "(not given)"}`,
+        `WhatsApp: ${whatsapp}`,
+        `Email: ${email || "(not given)"}`,
         `Type: ${kitchen}`,
         `Monthly orders: ${orders}`,
         `Average order: ${ticket}`,
         `Channels: ${channels}`,
         `Own customer data: ${data}`,
         `Order mix: ${mix}`,
-        `Notes: ${String(fd.get("notes") ?? "") || "(none)"}`,
+        `Notes: ${notes || "(none)"}`,
       ];
       window.location.href = `mailto:${PARTNERS_EMAIL}?subject=${encodeURIComponent(`Waitlist: ${brand} · ${city}`)}&body=${encodeURIComponent(lines.join("\n"))}`;
       setStatus("error");
-      setErrorMsg(`If nothing arrived yet, activate FormSubmit from ${PARTNERS_EMAIL}, or send the opened email.`);
+      setErrorMsg(
+        err instanceof Error && err.message.includes("SMTP_")
+          ? "Server mail is not configured yet — your email app opened with the details. Send that message."
+          : `Could not send automatically. Your email app should open — send to ${PARTNERS_EMAIL}.`,
+      );
     }
   }
 
