@@ -1,7 +1,10 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
+
+const PARTNERS_EMAIL = "partners@damigos.in";
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${PARTNERS_EMAIL}`;
 
 const field =
   "mt-2 w-full rounded-2xl border border-border-warm bg-white px-4 py-3 text-[15px] text-on-surface outline-none transition-shadow placeholder:text-[#b5aea4] focus:border-secondary focus:shadow-[0_0_0_4px_rgba(154,69,47,0.12)]";
@@ -64,13 +67,88 @@ export function WaitlistForm() {
   const [channels, setChannels] = useState("Swiggy / Zomato");
   const [data, setData] = useState("No — numbers masked");
   const [mix, setMix] = useState("Mostly delivery");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    fd.set("_subject", `Waitlist: ${String(fd.get("brand") ?? "").trim()} · ${String(fd.get("city") ?? "").trim()}`);
+    fd.set("_template", "table");
+    fd.set("_captcha", "false");
+    fd.set("kitchen_type", kitchen);
+    fd.set("monthly_orders", orders);
+    fd.set("avg_order", ticket);
+    fd.set("channels", channels);
+    fd.set("own_customer_data", data);
+    fd.set("order_mix", mix);
+    fd.set("reply_to_hint", String(fd.get("email") ?? "").trim() || String(fd.get("whatsapp") ?? "").trim());
+
+    setStatus("sending");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        body: fd,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("Submit failed");
+      setStatus("sent");
+      form.reset();
+    } catch {
+      // Fallback: open mail client with full details if FormSubmit is blocked / not activated yet
+      const brand = String(fd.get("brand") ?? "").trim();
+      const city = String(fd.get("city") ?? "").trim();
+      const lines = [
+        "D'aMigo's waitlist — new kitchen",
+        "",
+        `Brand / kitchen: ${brand}`,
+        `City: ${city}`,
+        `WhatsApp: ${String(fd.get("whatsapp") ?? "")}`,
+        `Email: ${String(fd.get("email") ?? "") || "(not given)"}`,
+        `Type: ${kitchen}`,
+        `Monthly orders: ${orders}`,
+        `Average order: ${ticket}`,
+        `Channels: ${channels}`,
+        `Own customer data: ${data}`,
+        `Order mix: ${mix}`,
+        `Notes: ${String(fd.get("notes") ?? "") || "(none)"}`,
+      ];
+      window.location.href = `mailto:${PARTNERS_EMAIL}?subject=${encodeURIComponent(`Waitlist: ${brand} · ${city}`)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      setStatus("error");
+      setErrorMsg(`If nothing arrived yet, activate FormSubmit from ${PARTNERS_EMAIL}, or send the opened email.`);
+    }
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="overflow-hidden rounded-[1.75rem] border border-border-warm bg-[#fdfbf7] shadow-[0_20px_50px_-24px_rgba(6,21,52,0.28)] p-8 sm:p-10 text-center">
+        <p className="font-headline text-2xl font-bold text-primary">Waitlist pe aa gaye.</p>
+        <p className="mt-3 text-text-muted text-sm leading-relaxed">
+          Details gaye{" "}
+          <a className="font-semibold text-secondary" href={`mailto:${PARTNERS_EMAIL}`}>
+            {PARTNERS_EMAIL}
+          </a>
+          . Hum WhatsApp / email pe reply karenge.
+        </p>
+        <button
+          type="button"
+          className="btn-waitlist mt-6 rounded-full text-white px-6 py-3 text-sm"
+          onClick={() => setStatus("idle")}
+        >
+          Submit another
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form
       className="overflow-hidden rounded-[1.75rem] border border-border-warm bg-[#fdfbf7] shadow-[0_20px_50px_-24px_rgba(6,21,52,0.28)]"
-      action="mailto:partner@damigos.in"
-      method="post"
-      encType="text/plain"
+      onSubmit={onSubmit}
     >
       <div className="bg-hero-navy-surface px-5 sm:px-7 py-5">
         <p className="font-headline text-xl sm:text-2xl font-bold text-accent-gold leading-none">Join waitlist</p>
@@ -85,8 +163,6 @@ export function WaitlistForm() {
       </div>
 
       <div className="p-5 sm:p-7 space-y-7">
-        <input type="hidden" name="intent" value="waitlist" />
-
         <section>
           <p className="text-sm font-extrabold text-primary mb-4">Aap kaun ho</p>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -152,10 +228,20 @@ export function WaitlistForm() {
         </Field>
 
         <div>
-          <button type="submit" className="btn-waitlist w-full rounded-full text-white py-3.5 text-sm">
-            Join waitlist
+          <button type="submit" className="btn-waitlist w-full rounded-full text-white py-3.5 text-sm" disabled={status === "sending"}>
+            {status === "sending" ? "Sending…" : "Join waitlist"}
           </button>
-          <p className="mt-3 text-xs text-text-muted text-center">Founding waitlist · partner@damigos.in · no spam</p>
+          <p className="mt-3 text-xs text-text-muted text-center">
+            Goes to{" "}
+            <a className="font-semibold text-secondary underline-offset-2 hover:underline" href={`mailto:${PARTNERS_EMAIL}`}>
+              {PARTNERS_EMAIL}
+            </a>
+            {" · "}
+            <a className="font-semibold text-secondary underline-offset-2 hover:underline" href="tel:+917760290409">
+              +91 77602 90409
+            </a>
+          </p>
+          {errorMsg ? <p className="mt-2 text-xs text-center text-secondary">{errorMsg}</p> : null}
         </div>
       </div>
     </form>

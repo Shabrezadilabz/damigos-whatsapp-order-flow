@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { DamigosLogo } from "./DamigosLogo";
 
+const PARTNERS_EMAIL = "partners@damigos.in";
+const PHONE_DISPLAY = "+91 77602 90409";
+const PHONE_HREF = "tel:+917760290409";
+
 export function SiteFooter() {
   return (
     <footer className="bg-primary text-surface-ivory pt-12 pb-[max(2rem,env(safe-area-inset-bottom))]">
@@ -26,7 +30,18 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-accent-gold font-headline text-sm font-bold mb-3">Talk</p>
-          <p className="text-sm text-white/75">partner@damigos.in</p>
+          <ul className="space-y-2 text-sm text-white/75">
+            <li>
+              <a className="hover:text-white transition-colors" href={`mailto:${PARTNERS_EMAIL}`}>
+                {PARTNERS_EMAIL}
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-white transition-colors" href={PHONE_HREF}>
+                {PHONE_DISPLAY}
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <p className="page-wrap mt-10 pt-6 border-t border-white/10 text-xs text-white/50">
