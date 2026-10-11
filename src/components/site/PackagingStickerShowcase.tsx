@@ -3,10 +3,21 @@ import { cn } from "@/lib/cn";
 
 type StickerShape = "circle" | "scallop" | "rounded" | "oval" | "ticket" | "arch" | "hex";
 
+type LangTag = "hi" | "kn" | "te";
+
+const LANG_LABEL: Record<LangTag, string> = {
+  hi: "हिं",
+  kn: "ಕ",
+  te: "తె",
+};
+
 type StickerDef = {
   name: string;
-  line: string;
-  footer: string;
+  lang: LangTag;
+  lineLocal: string;
+  lineEn: string;
+  footerLocal: string;
+  footerEn: string;
   bg: string;
   accent?: string;
   shape: StickerShape;
@@ -17,11 +28,15 @@ type StickerDef = {
   foil?: boolean;
 };
 
+/** Same layout on every sticker: local line → QR → local footer + English hint. */
 const STICKERS: StickerDef[] = [
   {
     name: "Mughal Treat",
-    line: "Scan to reorder",
-    footer: "WhatsApp · direct",
+    lang: "hi",
+    lineLocal: "फिर ऑर्डर — स्कैन करें",
+    lineEn: "Scan to reorder",
+    footerLocal: "WhatsApp · सीधा",
+    footerEn: "Direct chat order",
     bg: "from-[#145a47] via-[#1a4d3f] to-[#0a2f26]",
     accent: "#d4a853",
     shape: "scallop",
@@ -29,8 +44,11 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "Golden China",
-    line: "Scan for rewards",
-    footer: "Points on next visit",
+    lang: "kn",
+    lineLocal: "ರಿವಾರ್ಡ್‌ಗಾಗಿ ಸ್ಕ್ಯಾನ್",
+    lineEn: "Scan for rewards",
+    footerLocal: "ಮುಂದಿನ ಬಾರಿ ಪಾಯಿಂಟ್",
+    footerEn: "Points next visit",
     bg: "from-[#4a3228] via-[#3d2c24] to-[#1a100c]",
     accent: "#e8c4a0",
     shape: "rounded",
@@ -39,8 +57,11 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "Banner Food",
-    line: "Reorder on WhatsApp",
-    footer: "Powered by D'aMigo's",
+    lang: "te",
+    lineLocal: "WhatsAppలో మళ్ళీ ఆర్డర్",
+    lineEn: "Reorder on WhatsApp",
+    footerLocal: "D'aMigo's · partner rail",
+    footerEn: "Powered rail",
     bg: "from-[#1e3a5f] via-[#2a3f5c] to-[#0d1828]",
     accent: "#7eb8ff",
     shape: "arch",
@@ -49,8 +70,11 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "The Third Place",
-    line: "Scan · order · done",
-    footer: "Your kitchen · your guest",
+    lang: "hi",
+    lineLocal: "स्कैन · ऑर्डर · हो गया",
+    lineEn: "Scan · order · done",
+    footerLocal: "आपकी रसोई · आपका guest",
+    footerEn: "Your kitchen · your guest",
     bg: "from-[#5c3858] via-[#4a3050] to-[#2a1a2e]",
     accent: "#f0a8c8",
     shape: "oval",
@@ -58,8 +82,11 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "Spice Route",
-    line: "Be your brand",
-    footer: "Hero agent in chat",
+    lang: "kn",
+    lineLocal: "ನಿಮ್ಮ ಬ್ರ್ಯಾಂಡ್",
+    lineEn: "Be your brand",
+    footerLocal: "Hero agent · chat",
+    footerEn: "Order in WhatsApp",
     bg: "from-[#1f6b5c] via-[#1a5c52] to-[#0a3530]",
     accent: "#a8e6cf",
     shape: "ticket",
@@ -67,8 +94,11 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "Malayali Makbani",
-    line: "Scan to reorder",
-    footer: "D'aMigo's partner rail",
+    lang: "te",
+    lineLocal: "స్కాన్ చేసి reorder",
+    lineEn: "Scan to reorder",
+    footerLocal: "D'aMigo's partner rail",
+    footerEn: "Same guest thread",
     bg: "from-[#a85a22] via-[#8b4519] to-[#4a2508]",
     accent: "#ffd89a",
     shape: "circle",
@@ -77,21 +107,27 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "D'aMigo's",
-    line: "Cloud kitchen kit",
-    footer: "Co-brand optional",
+    lang: "hi",
+    lineLocal: "मुफ्त ऑनबोर्डिंग",
+    lineEn: "Free onboarding kit",
+    footerLocal: "ಕ · తె · हिं stickers",
+    footerEn: "Kannada · Telugu · Hindi",
     bg: "from-[#c45a3a] via-[#9a452f] to-[#5c2818]",
     accent: "#fff5e1",
     shape: "hex",
     powered: true,
-    sub: "White-label stickers",
+    sub: "White-label · co-brand",
     cursive: true,
     foil: true,
     tilt: 1,
   },
   {
     name: "Meghana Foods",
-    line: "Scan for offers",
-    footer: "Weekend combo ready",
+    lang: "kn",
+    lineLocal: "ಆಫರ್‌ಗಾಗಿ ಸ್ಕ್ಯಾನ್",
+    lineEn: "Scan for offers",
+    footerLocal: "ವೀಕೆಂಡ್ combo ready",
+    footerEn: "Weekend combo",
     bg: "from-[#2a6368] via-[#234e52] to-[#0f282b]",
     accent: "#7fffd4",
     shape: "oval",
@@ -99,8 +135,11 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "Kebab Boy HSR",
-    line: "Late night reorder",
-    footer: "Same chat thread",
+    lang: "hi",
+    lineLocal: "रात में dubara order",
+    lineEn: "Late night reorder",
+    footerLocal: "वही WhatsApp chat",
+    footerEn: "Same chat thread",
     bg: "from-[#2d2d44] via-[#1e1e32] to-[#0a0a14]",
     accent: "#c9b8ff",
     shape: "rounded",
@@ -108,8 +147,11 @@ const STICKERS: StickerDef[] = [
   },
   {
     name: "Ripple Cafe",
-    line: "Loyalty inside",
-    footer: "Scan · earn · repeat",
+    lang: "te",
+    lineLocal: "loyalty లో scan",
+    lineEn: "Loyalty inside",
+    footerLocal: "scan · earn · repeat",
+    footerEn: "Points in chat",
     bg: "from-[#3d5a40] via-[#2f4a32] to-[#1a2e1c]",
     accent: "#ffe566",
     shape: "scallop",
@@ -162,7 +204,22 @@ function shapeShell(shape: StickerShape, compact?: boolean) {
 }
 
 function StickerCard({ sticker, compact }: { sticker: StickerDef; compact?: boolean }) {
-  const { name, line, footer, bg, accent, shape, powered, sub, cursive, tilt = 0, foil } = sticker;
+  const {
+    name,
+    lang,
+    lineLocal,
+    lineEn,
+    footerLocal,
+    footerEn,
+    bg,
+    accent,
+    shape,
+    powered,
+    sub,
+    cursive,
+    tilt = 0,
+    foil,
+  } = sticker;
 
   return (
     <div
@@ -201,11 +258,19 @@ function StickerCard({ sticker, compact }: { sticker: StickerDef; compact?: bool
         ) : null}
 
         <div className="relative z-10 w-full min-h-0 shrink-0 pt-0.5">
-          {powered ? (
-            <span className="inline-block mb-1 rounded-full border border-white/25 bg-white/10 px-2 py-0.5 text-[7px] font-bold uppercase tracking-[0.2em] text-white/80">
-              Partner
+          <div className="flex items-center justify-center gap-1.5 mb-1 flex-wrap">
+            {powered ? (
+              <span className="rounded-full border border-white/25 bg-white/10 px-1.5 py-0.5 text-[6px] font-bold uppercase tracking-[0.16em] text-white/80">
+                Partner
+              </span>
+            ) : null}
+            <span
+              className="rounded-full bg-black/25 px-1.5 py-0.5 text-[8px] font-bold text-white/90 leading-none"
+              title={lang === "hi" ? "Hindi" : lang === "kn" ? "Kannada" : "Telugu"}
+            >
+              {LANG_LABEL[lang]}
             </span>
-          ) : null}
+          </div>
           <p
             className={cn(
               "font-headline font-extrabold leading-tight tracking-tight drop-shadow-sm",
@@ -216,16 +281,29 @@ function StickerCard({ sticker, compact }: { sticker: StickerDef; compact?: bool
           </p>
           {sub ? <p className="text-[7px] sm:text-[8px] text-white/75 mt-0.5 italic">{sub}</p> : null}
           <p
-            className="mt-1.5 text-[7px] sm:text-[8px] font-bold uppercase tracking-[0.18em] text-white/90"
+            className={cn(
+              "mt-1.5 font-bold leading-snug text-white px-0.5",
+              compact ? "text-[8px]" : "text-[9px] sm:text-[10px]",
+            )}
             style={accent ? { color: accent } : undefined}
+            lang={lang === "hi" ? "hi" : lang === "kn" ? "kn" : "te"}
           >
-            {line}
+            {lineLocal}
           </p>
+          <p className="text-[6px] sm:text-[7px] uppercase tracking-[0.12em] text-white/55 mt-0.5">{lineEn}</p>
         </div>
 
         <QrBlock className={cn("relative z-10 my-2 w-[54%]", compact ? "max-w-[58px]" : "max-w-[80px]")} />
 
-        <p className="relative z-10 text-[7px] sm:text-[8px] text-white/70 leading-snug px-1 pb-0.5">{footer}</p>
+        <div className="relative z-10 px-1 pb-0.5">
+          <p
+            className="text-[7px] sm:text-[8px] text-white/85 leading-snug"
+            lang={lang === "hi" ? "hi" : lang === "kn" ? "kn" : "te"}
+          >
+            {footerLocal}
+          </p>
+          <p className="text-[6px] text-white/50 mt-0.5">{footerEn}</p>
+        </div>
 
         {shape === "rounded" || shape === "arch" ? (
           <div
@@ -287,7 +365,7 @@ export function PackagingStickerShowcase({
 
   if (variant === "hero") {
     return (
-      <ShowcaseFrame title="Your name on pack · our QR rail" className={className}>
+      <ShowcaseFrame title="Your name · Hindi · Kannada · Telugu — same layout" className={className}>
         <div className="grid grid-cols-2 gap-4 sm:gap-5">
           {items.map((s) => (
             <StickerCard key={s.name} sticker={s} compact />
@@ -311,7 +389,7 @@ export function PackagingStickerShowcase({
   }
 
   return (
-    <ShowcaseFrame title="Seal · arch · hex · ticket — same WhatsApp rail" className={className}>
+    <ShowcaseFrame title="Local line · QR · footer — हिं · ಕ · తె on every pack" className={className}>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
         {items.map((s) => (
           <StickerCard key={s.name} sticker={s} />

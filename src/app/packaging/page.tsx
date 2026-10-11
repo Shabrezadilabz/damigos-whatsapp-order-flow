@@ -105,9 +105,9 @@ export default function PackagingPage() {
             More designs inside the scanner — seals, sheets, campaign labels.
           </h2>
           <p className="mt-3 text-text-muted max-w-2xl">
-            Forest green, plum, charcoal, terracotta — not one corporate template. Most stickers say{" "}
-            <strong className="text-primary font-semibold">your kitchen name</strong> above the QR; some add
-            &ldquo;Powered by D'aMigo's&rdquo; when you choose co-brand.
+            Forest green, plum, charcoal, terracotta — not one corporate template. Copy ships in{" "}
+            <strong className="text-primary font-semibold">Hindi, Kannada, or Telugu</strong> (same structure:
+            local headline → QR → footer + English hint). Your kitchen name stays on top; co-brand only when you want it.
           </p>
           <div className="mt-8">
             <PackagingStickerShowcase variant="grid" />
