@@ -66,7 +66,7 @@ export function LaunchPromiseBar() {
           </div>
           <Link
             href="/waitlist"
-            className="hidden lg:inline-flex items-center gap-1.5 shrink-0 rounded-full border border-accent-gold/40 bg-accent-gold/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-accent-gold hover:bg-accent-gold/20 transition-colors"
+            className="hidden lg:inline-flex items-center gap-1.5 shrink-0 rounded-full bg-secondary text-white px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] shadow-[0_4px_14px_-2px_rgba(154,69,47,0.55)] hover:bg-[#b8553a] transition-colors"
           >
             Launch offers
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { StoryImage } from "@/components/site/StoryImage";
 import { StepChips } from "@/components/site/StepChips";
+import { PackagingStickerShowcase } from "@/components/site/PackagingStickerShowcase";
 import { ShotStrip } from "@/components/site/ShotStrip";
 
 export const metadata: Metadata = { title: "Packaging QR & Alignment" };
@@ -31,7 +32,7 @@ const SURFACES = [
   {
     id: "stickers",
     title: "QR stickers",
-    text: "More than one look. Round seals, square labels, peel sheets — every design still scans into your WhatsApp agent.",
+    text: "Your restaurant name on the label — QR opens your WhatsApp. D'aMigo's shows only where you want co-branding.",
     img: "/images/sticker-design-variety.jpg",
     cap: "Variety pack — one scan rail.",
   },
@@ -64,22 +65,16 @@ export default function PackagingPage() {
               <span className="text-secondary">Aligned once. Repeated forever.</span>
             </h1>
             <p className="mt-5 text-base sm:text-lg text-text-muted max-w-xl">
-              Every surface that leaves your kitchen is a WhatsApp doorway. Stickers come in more designs —
-              seals, sheets, campaign labels — and every one still opens your Hero agent.
+              Every surface that leaves your kitchen is a WhatsApp doorway. Stickers lead with{" "}
+              <strong className="text-primary font-semibold">your restaurant name</strong> — not ours on every pack.
+              D'aMigo's is the ordering rail; guests still see you first.
             </p>
             <StepChips
               steps={["Bag", "Box lid", "Tissue", "Stickers", "Scan → chat"]}
               hrefs={["#bag", "#box-lid", "#tissue", "#stickers", "#scan-chat"]}
             />
           </div>
-          <StoryImage
-            src="/images/sticker-design-variety.jpg"
-            alt="Variety of QR reorder stickers: round seals, square labels, oval badges"
-            caption="Sticker variety — same scan, your brand look."
-            ratio="square"
-            object="top"
-            priority
-          />
+          <PackagingStickerShowcase variant="hero" />
         </div>
       </section>
 
@@ -91,7 +86,11 @@ export default function PackagingPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SURFACES.map((s) => (
             <div key={s.title} id={s.id} className="min-w-0 scroll-mt-28">
-              <StoryImage src={s.img} alt={s.title} caption={s.cap} ratio="square" />
+              {s.id === "stickers" ? (
+                <PackagingStickerShowcase variant="strip" className="mb-1" />
+              ) : (
+                <StoryImage src={s.img} alt={s.title} caption={s.cap} ratio="square" />
+              )}
               <h3 className="font-headline font-bold text-primary mt-4">{s.title}</h3>
               <p className="text-sm text-text-muted mt-2 leading-relaxed">{s.text}</p>
             </div>
@@ -106,15 +105,19 @@ export default function PackagingPage() {
             More designs inside the scanner — seals, sheets, campaign labels.
           </h2>
           <p className="mt-3 text-text-muted max-w-2xl">
-            Round flaps, square lids, peel sheets for festival / payday / loyalty. Guests scan any of them —
-            WhatsApp opens your agent with the right offer or reorder thread.
+            Forest green, plum, charcoal, terracotta — not one corporate template. Most stickers say{" "}
+            <strong className="text-primary font-semibold">your kitchen name</strong> above the QR; some add
+            &ldquo;Powered by D'aMigo's&rdquo; when you choose co-brand.
           </p>
+          <div className="mt-8">
+            <PackagingStickerShowcase variant="grid" />
+          </div>
           <div className="mt-8">
             <ShotStrip shots={STICKER_SHOTS} />
           </div>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { t: "Seal stickers", d: "Round / oval on bag flaps and cup lids — brand first, QR clear." },
+              { t: "Seal stickers", d: "Round / oval on bag flaps — restaurant name first, QR clear." },
               { t: "Campaign sheets", d: "Weekend, payday, festival, birthday — peel and stick per order." },
               { t: "Loyalty & redeem", d: "Points / rewards CTAs that open Claim Rewards in the Hero agent." },
             ].map((c) => (
