@@ -87,7 +87,9 @@ export default function PackagingPage() {
           {SURFACES.map((s) => (
             <div key={s.title} id={s.id} className="min-w-0 scroll-mt-28">
               {s.id === "stickers" ? (
-                <PackagingStickerShowcase variant="strip" className="mb-1" />
+                <div className="aspect-square rounded-2xl border border-border-warm bg-surface-card-tint flex items-end justify-center p-2 sm:p-3 overflow-hidden">
+                  <PackagingStickerShowcase variant="strip" className="w-full" />
+                </div>
               ) : (
                 <StoryImage src={s.img} alt={s.title} caption={s.cap} ratio="square" />
               )}

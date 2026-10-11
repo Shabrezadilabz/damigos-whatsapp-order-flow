@@ -183,7 +183,10 @@ function QrBlock({ className, dark = true }: { className?: string; dark?: boolea
   );
 }
 
-function shapeShell(shape: StickerShape, compact?: boolean) {
+function shapeShell(shape: StickerShape, compact?: boolean, stripAlign?: boolean) {
+  if (stripAlign) {
+    return "w-[92px] h-[128px] sm:w-[100px] sm:h-[136px] max-w-none rounded-2xl shrink-0";
+  }
   const base = compact ? "max-w-[118px]" : "max-w-[168px]";
   switch (shape) {
     case "circle":
@@ -203,7 +206,15 @@ function shapeShell(shape: StickerShape, compact?: boolean) {
   }
 }
 
-function StickerCard({ sticker, compact }: { sticker: StickerDef; compact?: boolean }) {
+function StickerCard({
+  sticker,
+  compact,
+  stripAlign,
+}: {
+  sticker: StickerDef;
+  compact?: boolean;
+  stripAlign?: boolean;
+}) {
   const {
     name,
     lang,
@@ -221,21 +232,24 @@ function StickerCard({ sticker, compact }: { sticker: StickerDef; compact?: bool
     foil,
   } = sticker;
 
+  const displayShape = stripAlign ? "rounded" : shape;
+  const cardTilt = stripAlign ? 0 : tilt;
+
   return (
     <div
-      className="group flex justify-center"
-      style={{ transform: `rotate(${tilt}deg)` }}
+      className={cn("group flex justify-center", stripAlign && "w-full")}
+      style={{ transform: cardTilt ? `rotate(${cardTilt}deg)` : undefined }}
     >
       <div
         className={cn(
           "relative flex flex-col items-center justify-between text-center text-white overflow-hidden",
-          "transition-transform duration-300 group-hover:scale-[1.03] group-hover:-translate-y-0.5",
+          !stripAlign && "transition-transform duration-300 group-hover:scale-[1.03] group-hover:-translate-y-0.5",
           "shadow-[0_12px_32px_-8px_rgba(6,21,52,0.45)] ring-1 ring-white/15",
-          compact ? "p-2.5 text-[9px]" : "p-3.5 sm:p-4 text-[10px] sm:text-[11px]",
-          shapeShell(shape, compact),
-          shape === "scallop" && "sticker-scallop",
-          shape === "hex" && "sticker-hex",
-          shape === "ticket" && "sticker-ticket",
+          stripAlign ? "p-2 text-[8px]" : compact ? "p-2.5 text-[9px]" : "p-3.5 sm:p-4 text-[10px] sm:text-[11px]",
+          shapeShell(displayShape, compact, stripAlign),
+          !stripAlign && shape === "scallop" && "sticker-scallop",
+          !stripAlign && shape === "hex" && "sticker-hex",
+          !stripAlign && shape === "ticket" && "sticker-ticket",
         )}
       >
         <div className={cn("absolute inset-0 bg-gradient-to-br opacity-100", bg)} aria-hidden />
@@ -258,14 +272,16 @@ function StickerCard({ sticker, compact }: { sticker: StickerDef; compact?: bool
         ) : null}
 
         <div className="relative z-10 w-full min-h-0 shrink-0 pt-0.5">
-          <div className="flex items-center justify-center gap-1.5 mb-1 flex-wrap">
-            {powered ? (
+          <div className="flex items-center justify-center gap-1 mb-0.5 flex-wrap min-h-[14px]">
+            {powered && !stripAlign ? (
               <span className="rounded-full border border-white/25 bg-white/10 px-1.5 py-0.5 text-[6px] font-bold uppercase tracking-[0.16em] text-white/80">
                 Partner
               </span>
+            ) : powered && stripAlign ? (
+              <span className="text-[5px] font-bold uppercase tracking-widest text-white/70">P</span>
             ) : null}
             <span
-              className="rounded-full bg-black/25 px-1.5 py-0.5 text-[8px] font-bold text-white/90 leading-none"
+              className="rounded-full bg-black/25 px-1 py-0.5 text-[7px] font-bold text-white/90 leading-none"
               title={lang === "hi" ? "Hindi" : lang === "kn" ? "Kannada" : "Telugu"}
             >
               {LANG_LABEL[lang]}
@@ -273,36 +289,46 @@ function StickerCard({ sticker, compact }: { sticker: StickerDef; compact?: bool
           </div>
           <p
             className={cn(
-              "font-headline font-extrabold leading-tight tracking-tight drop-shadow-sm",
-              cursive ? "font-cursive text-xl sm:text-2xl font-normal tracking-normal" : "text-xs sm:text-sm",
+              "font-headline font-extrabold leading-tight tracking-tight drop-shadow-sm line-clamp-2",
+              cursive ? "font-cursive text-lg font-normal tracking-normal" : stripAlign ? "text-[9px]" : "text-xs sm:text-sm",
             )}
           >
             {name}
           </p>
-          {sub ? <p className="text-[7px] sm:text-[8px] text-white/75 mt-0.5 italic">{sub}</p> : null}
+          {sub && !stripAlign ? <p className="text-[7px] sm:text-[8px] text-white/75 mt-0.5 italic">{sub}</p> : null}
           <p
             className={cn(
-              "mt-1.5 font-bold leading-snug text-white px-0.5",
-              compact ? "text-[8px]" : "text-[9px] sm:text-[10px]",
+              "mt-1 font-bold leading-snug text-white px-0.5 line-clamp-2",
+              stripAlign ? "text-[7px]" : compact ? "text-[8px]" : "text-[9px] sm:text-[10px]",
             )}
             style={accent ? { color: accent } : undefined}
             lang={lang === "hi" ? "hi" : lang === "kn" ? "kn" : "te"}
           >
             {lineLocal}
           </p>
-          <p className="text-[6px] sm:text-[7px] uppercase tracking-[0.12em] text-white/55 mt-0.5">{lineEn}</p>
+          {!stripAlign ? (
+            <p className="text-[6px] sm:text-[7px] uppercase tracking-[0.12em] text-white/55 mt-0.5">{lineEn}</p>
+          ) : null}
         </div>
 
-        <QrBlock className={cn("relative z-10 my-2 w-[54%]", compact ? "max-w-[58px]" : "max-w-[80px]")} />
+        <QrBlock
+          className={cn(
+            "relative z-10 my-1 w-[54%]",
+            stripAlign ? "max-w-[52px]" : compact ? "max-w-[58px]" : "max-w-[80px]",
+          )}
+        />
 
-        <div className="relative z-10 px-1 pb-0.5">
+        <div className="relative z-10 px-1 pb-0.5 w-full">
           <p
-            className="text-[7px] sm:text-[8px] text-white/85 leading-snug"
+            className={cn(
+              "text-white/85 leading-snug line-clamp-2",
+              stripAlign ? "text-[6px]" : "text-[7px] sm:text-[8px]",
+            )}
             lang={lang === "hi" ? "hi" : lang === "kn" ? "kn" : "te"}
           >
             {footerLocal}
           </p>
-          <p className="text-[6px] text-white/50 mt-0.5">{footerEn}</p>
+          {!stripAlign ? <p className="text-[6px] text-white/50 mt-0.5">{footerEn}</p> : null}
         </div>
 
         {shape === "rounded" || shape === "arch" ? (
@@ -377,11 +403,20 @@ export function PackagingStickerShowcase({
 
   if (variant === "strip") {
     return (
-      <div className={cn("grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5", className)}>
+      <div
+        className={cn(
+          "grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-3 sm:gap-x-3 items-end",
+          className,
+        )}
+      >
         {items.map((s) => (
-          <figure key={s.name} className="min-w-0">
-            <StickerCard sticker={s} compact />
-            <figcaption className="mt-2.5 text-[11px] font-semibold text-primary text-center">{s.name}</figcaption>
+          <figure key={s.name} className="flex flex-col items-center min-w-0 w-full">
+            <div className="flex w-full justify-center items-end min-h-[128px] sm:min-h-[136px]">
+              <StickerCard sticker={s} compact stripAlign />
+            </div>
+            <figcaption className="mt-2 w-full min-h-[2.5rem] flex items-start justify-center text-center text-[10px] sm:text-[11px] font-semibold text-primary leading-snug line-clamp-2 px-0.5">
+              {s.name}
+            </figcaption>
           </figure>
         ))}
       </div>
