@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { StoryImage } from "@/components/site/StoryImage";
+import { LaunchPromisePills } from "@/components/site/LaunchPromiseBar";
 import { WaitlistButton } from "@/components/site/WaitlistButton";
 
 export const metadata: Metadata = { title: "Economics" };
@@ -7,7 +8,8 @@ export const metadata: Metadata = { title: "Economics" };
 export default function EconomicsPage() {
   return (
     <main className="page-wrap py-10 sm:py-14 md:py-16">
-      <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary">0% commission</p>
+      <LaunchPromisePills />
+      <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary mt-4">Economics</p>
       <h1 className="font-headline text-[1.85rem] sm:text-4xl font-extrabold text-primary mt-3 tracking-tight">Same plate. Different P&amp;L.</h1>
       <p className="mt-4 text-lg text-text-muted max-w-2xl">
         Aggregators charge 28–34% and withhold the diner. Direct WhatsApp keeps the ticket and the phone number.

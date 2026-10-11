@@ -12,7 +12,7 @@ export function SiteFooter() {
         <div className="space-y-3">
           <DamigosLogo variant="cream" size="md" />
           <p className="text-sm text-white/70 max-w-xs">
-            WhatsApp is the storefront. Delivery is yours. 0% commission, 100% guest ownership.
+            No onboarding fees. No subscriptions. No commission. WhatsApp is the storefront — guest data stays yours.
           </p>
         </div>
         <div>

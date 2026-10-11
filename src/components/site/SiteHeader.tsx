@@ -35,8 +35,10 @@ export function SiteHeader() {
     <header className="fixed top-0 inset-x-0 z-50 pt-[env(safe-area-inset-top)]">
       <div className="bg-primary-container text-on-primary py-1.5 px-3 sm:px-4 text-center">
         <Link href="/waitlist" className="text-[10px] sm:text-xs font-semibold text-secondary-container hover:text-white">
-          <span className="sm:hidden">Waitlist · 0% commission · 3x orders</span>
-          <span className="hidden sm:inline">Cloud kitchen + takeaway waitlist · guest data yours · 3x orders</span>
+          <span className="sm:hidden">No fees · No subs · No commission · Waitlist</span>
+          <span className="hidden sm:inline">
+            Free onboarding · no subscription · no commission · join the waitlist for launch offers
+          </span>
         </Link>
       </div>
       <div

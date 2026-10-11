@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { LaunchPromiseBar } from "./LaunchPromiseBar";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 import { Reveal } from "./Reveal";
@@ -18,6 +19,7 @@ export function PageShell({ children }: { children: React.ReactNode }) {
       <Reveal />
       <SiteHeader />
       <div className="pt-[calc(5.75rem+env(safe-area-inset-top))] sm:pt-[calc(6.25rem+env(safe-area-inset-top))]">
+        <LaunchPromiseBar />
         {children}
       </div>
       <SiteFooter />

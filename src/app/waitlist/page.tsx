@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LaunchPromisePills } from "@/components/site/LaunchPromiseBar";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 
 export const metadata: Metadata = { title: "Join the waitlist" };
@@ -9,6 +10,7 @@ export default function WaitlistPage() {
       <div className="page-wrap py-10 sm:py-14 md:py-16 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-10 items-start">
         <div className="min-w-0 lg:sticky lg:top-28">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-secondary">Founding waitlist</p>
+          <LaunchPromisePills className="mt-3" />
           <h1 className="font-headline text-[1.85rem] sm:text-4xl font-extrabold text-primary mt-2 tracking-tight">
             Order details do.
             <span className="text-secondary"> Rewards auto.</span>
@@ -22,7 +24,7 @@ export default function WaitlistPage() {
               "Phone + order history tumhara",
               "Pehle orders se personal rewards",
               "Festival / payday / geo auto",
-              "0% commission on the ticket",
+              "No onboarding fees · no subscription · no commission",
             ].map((t) => (
               <li key={t} className="flex gap-3 items-start text-sm text-on-surface">
                 <span className="mt-0.5 h-5 w-5 rounded-full bg-secondary text-white flex items-center justify-center text-[11px] font-bold shrink-0">
