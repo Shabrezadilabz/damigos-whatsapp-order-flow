@@ -135,3 +135,91 @@ img { max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .marquee-left { animation: none; }
 }
+
+/* Packaging sticker shapes */
+.sticker-scallop {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 0 0 5px rgba(0, 0, 0, 0.06);
+}
+.sticker-scallop::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from -4deg,
+    rgba(255, 255, 255, 0.45) 0deg 7deg,
+    transparent 7deg 14deg
+  );
+  mask: radial-gradient(circle, transparent 66%, black 68%, black 76%, transparent 78%);
+  -webkit-mask: radial-gradient(circle, transparent 66%, black 68%, black 76%, transparent 78%);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.sticker-hex {
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+.sticker-ticket {
+  clip-path: polygon(
+    0% 8%,
+    4% 0%,
+    8% 8%,
+    12% 0%,
+    16% 8%,
+    20% 0%,
+    24% 8%,
+    28% 0%,
+    32% 8%,
+    36% 0%,
+    40% 8%,
+    44% 0%,
+    48% 8%,
+    52% 0%,
+    56% 8%,
+    60% 0%,
+    64% 8%,
+    68% 0%,
+    72% 8%,
+    76% 0%,
+    80% 8%,
+    84% 0%,
+    88% 8%,
+    92% 0%,
+    96% 8%,
+    100% 0%,
+    100% 92%,
+    96% 100%,
+    92% 92%,
+    88% 100%,
+    84% 92%,
+    80% 100%,
+    76% 92%,
+    72% 100%,
+    68% 92%,
+    64% 100%,
+    60% 92%,
+    56% 100%,
+    52% 92%,
+    48% 100%,
+    44% 92%,
+    40% 100%,
+    36% 92%,
+    32% 100%,
+    28% 92%,
+    24% 100%,
+    20% 92%,
+    16% 100%,
+    12% 92%,
+    8% 100%,
+    4% 92%,
+    0% 100%
+  );
+}
+
+.sticker-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
