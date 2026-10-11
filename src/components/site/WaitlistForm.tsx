@@ -246,8 +246,8 @@ export function WaitlistForm() {
               {PARTNERS_EMAIL}
             </a>
             {" · "}
-            <a className="font-semibold text-secondary underline-offset-2 hover:underline" href="tel:+917760290409">
-              +91 77602 90409
+            <a className="font-semibold text-secondary underline-offset-2 hover:underline" href="tel:+919440152021">
+              +91 94401 52021
             </a>
           </p>
           {errorMsg ? <p className="mt-2 text-xs text-center text-secondary">{errorMsg}</p> : null}

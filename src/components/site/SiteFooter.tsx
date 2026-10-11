@@ -2,8 +2,8 @@ import Link from "next/link";
 import { DamigosLogo } from "./DamigosLogo";
 
 const PARTNERS_EMAIL = "partners@damigos.in";
-const PHONE_DISPLAY = "+91 77602 90409";
-const PHONE_HREF = "tel:+917760290409";
+const PHONE_DISPLAY = "+91 94401 52021";
+const PHONE_HREF = "tel:+919440152021";
 
 export function SiteFooter() {
   return (
